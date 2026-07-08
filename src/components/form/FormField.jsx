@@ -19,26 +19,28 @@ export function FormField({
 }) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
-      {multiLine ? (
-        <textarea
-          placeholder={placeholder}
-          name={name}
-          id={name}
-          value={value}
-          onChange={onChange}
-        />
-      ) : (
-        <input
-          type={type}
-          placeholder={placeholder}
-          name={name}
-          id={name}
-          autoComplete={autoCompleteType}
-          value={value}
-          onChange={onChange}
-        />
-      )}
+      <div>
+        <label htmlFor={name}>{label}</label>
+        {multiLine ? (
+          <textarea
+            placeholder={placeholder}
+            name={name}
+            id={name}
+            value={value}
+            onChange={onChange}
+          />
+        ) : (
+          <input
+            type={type}
+            placeholder={placeholder}
+            name={name}
+            id={name}
+            autoComplete={autoCompleteType}
+            value={value}
+            onChange={onChange}
+          />
+        )}
+      </div>
     </>
   )
 }
