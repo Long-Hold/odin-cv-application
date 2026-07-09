@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import { ContactFields } from './components/form/ContactFields'
+import { EducationFields } from './components/form/EducationFields';
+import { createEducationEntry } from './utils/resumeTemplates';
 
 function App() {
   /**
@@ -25,9 +27,26 @@ function App() {
     });
   }
 
+  const addNewResumeData = (event) => {
+    console.log(resume.education)
+    const fieldType = event.currentTarget.dataset.fieldType;
+    setResume((prevResume) => {
+      if (fieldType === 'education') {
+        return { 
+          ...prevResume,
+          education: [
+            ...prevResume.education,
+            createEducationEntry(),
+          ]
+        }
+      }
+    });
+  }
+
   return (
     <>
      <ContactFields onChange={handleResumeInput} resumeData={resume} />
+     <EducationFields onChange={handleResumeInput} resumeData={resume} addField={addNewResumeData}/>
     </>
   )
 }
