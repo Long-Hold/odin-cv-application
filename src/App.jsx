@@ -16,9 +16,18 @@ function App() {
     workExperience: []
   }));
 
+  const handleResumeInput = (event) => {
+    setResume((prevResume) => {
+      return {
+        ...prevResume,
+        [event.target.name]: event.target.value
+      }
+    });
+  }
+
   return (
     <>
-     <ContactFields />
+     <ContactFields onChange={handleResumeInput} resumeData={resume} />
     </>
   )
 }
