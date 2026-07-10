@@ -12,11 +12,13 @@
  * @param {string} props.value - Current field value (controlled component).
  * @param {function} props.onChange - Change handler, called on every keystroke.
  * @param {boolean} [props.multiLine=false] - When true, renders a `<textarea>` instead of an `<input>`.
+ * @param {entryId} [props.entrydId=false] - When true, appends a unique identifier string to props.name, otherwise uses props.name for id.
  * @returns {JSX.Element} A fragment containing a `<label>` and its corresponding `<input>` or `<textarea>`.
  */
 export function FormField({
-  name, label, type, placeholder, autoCompleteType, value, onChange, multiLine = false
+  name, label, type, placeholder, autoCompleteType, value, onChange, multiLine = false, entryId = null
 }) {
+  const fieldId = (entryId !== null) ? `$${name}_${entryId}` : name;
   return (
     <>
       <div>
@@ -25,7 +27,7 @@ export function FormField({
           <textarea
             placeholder={placeholder}
             name={name}
-            id={name}
+            id={fieldId}
             value={value}
             onChange={onChange}
           />
@@ -34,7 +36,7 @@ export function FormField({
             type={type}
             placeholder={placeholder}
             name={name}
-            id={name}
+            id={fieldId}
             autoComplete={autoCompleteType}
             value={value}
             onChange={onChange}
