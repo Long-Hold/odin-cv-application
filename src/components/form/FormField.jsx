@@ -23,11 +23,11 @@ export function FormField({
    * inputs that would otherwise share the same id. In that case, I add their object's unique id to the 
    * name property which is then used for the id.
    */
-  const fieldId = (entryId !== null) ? `$${name}_${entryId}` : name;
+  const fieldId = (entryId !== null) ? `${name}_${entryId}` : name;
   return (
     <>
       <div>
-        <label htmlFor={name}>{label}</label>
+        <label htmlFor={fieldId}>{label}</label>
         {multiLine ? (
           <textarea
             placeholder={placeholder}
