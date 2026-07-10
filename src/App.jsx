@@ -3,6 +3,7 @@ import './App.css'
 import { ContactFields } from './components/form/ContactFields'
 import { EducationFields } from './components/form/EducationFields';
 import { createEducationEntry } from './utils/resumeTemplates';
+import { RESUME_KEYS } from './constants/resumeKeys';
 
 function App() {
   /**
@@ -10,13 +11,15 @@ function App() {
    * As the user enters data into the form, this object receives the most current state, and
    * reflects it in the resume template.
    */
-  const [resume, setResume] = useState(() => ({
-    name: '',
-    email: '',
-    number: '',
-    education: [],
-    workExperience: []
-  }));
+  const [resume, setResume] = useState(() => {
+    const entries = Object.values(RESUME_KEYS).map((key) => {
+      if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE)
+        return [key, []];
+      return [key, ''];
+    })
+
+    return Object.fromEntries(entries);
+  });
 
   const handleResumeInput = (event) => {
     const {name, value} = event.currentTarget;
