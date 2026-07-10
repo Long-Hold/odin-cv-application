@@ -19,10 +19,11 @@ function App() {
   }));
 
   const handleResumeInput = (event) => {
+    const {name, value} = event.currentTarget;
     setResume((prevResume) => {
       return {
         ...prevResume,
-        [event.target.name]: event.target.value
+        [name]: value
       }
     });
   }
