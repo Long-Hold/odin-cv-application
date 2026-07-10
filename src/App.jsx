@@ -28,6 +28,23 @@ function App() {
     });
   }
 
+  const handleEntryFieldChange = (event) => {
+    const {name, value} = event.currentTarget;
+    const fieldType = event.currentTarget.dataset.fieldType;
+    const entryId = event.currentTarget.dataset.entryId;
+
+    setResume((prevResume) => {
+      const updatedArray = prevResume[fieldType].map((entry) => {
+        return entry.id === entryId ? {...entry, [name]: value} : entry
+      });
+      
+      return {
+        ...prevResume,
+        [fieldType] : updatedArray
+      }
+    })
+  }
+
   const addNewResumeData = (event) => {
     console.log(resume.education)
     const fieldType = event.currentTarget.dataset.fieldType;
@@ -44,10 +61,12 @@ function App() {
     });
   }
 
+  const educationFieldType = "education";
+
   return (
     <>
      <ContactFields onChange={handleResumeInput} resumeData={resume} />
-     <EducationFields onChange={handleResumeInput} resumeData={resume} addField={addNewResumeData}/>
+     <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} fieldType={educationFieldType}/>
     </>
   )
 }
