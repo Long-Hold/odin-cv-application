@@ -1,3 +1,5 @@
+import { EDUCATION_KEYS, WORK_EXPERIENCE_KEYS } from "../constants/resumeKeys"
+
 /**
  * @typedef {Object} EducationTemplate
  * @property {string} id - A unique UUID v4 identifier used as a React list key.
@@ -7,17 +9,19 @@
  */
 
 /**
- * Creates a blank education entry template to populate dynamic form fields.
- * This object is designed to be appended to a React state array.
- * 
- * @returns {EducationTemplate} A fresh education template object with a unique ID.
- */
+* Creates a blank education entry by deriving field keys from {@link EDUCATION_KEYS}.
+* The resulting object is designed to be appended to a React state array.
+*
+* @see EDUCATION_KEYS
+* @returns {EducationTemplate} A fresh education template object with a unique ID.
+*/
 export function createEducationEntry() {
+  const educationEntries = Object.fromEntries(
+    Object.values(EDUCATION_KEYS).map(key => [key, ""])
+  );
   return {
     id: crypto.randomUUID(),
-    schoolName: '',
-    degree: '',
-    dateRange: '',
+    ...educationEntries,
   }
 }
 
@@ -31,17 +35,18 @@ export function createEducationEntry() {
  */
 
 /**
- * Creates a blank work experience entry template to populate dynamic form fields.
- * This object is designed to be appended to a React state array.
+ * Creates a blank workExperience entry by deriving field keys from {@link WORK_EXPERIENCE_KEYS}.
+ * The resulting object is designed to be appended to a React state array.
  * 
+ * @see WORK_EXPERIENCE_KEYS
  * @returns {WorkExperienceTemplate} A fresh work experience template object with a unique ID.
  */
 export function createWorkExperienceEntry() {
+  const workExperienceEntries = Object.fromEntries(
+    Object.values(WORK_EXPERIENCE_KEYS).map(key => [key, ""])
+  );
   return {
     id: crypto.randomUUID(),
-    companyName: '',
-    position: '',
-    jobDescription: '',
-    dateRange: '',
+    ...workExperienceEntries,
   }
 }
