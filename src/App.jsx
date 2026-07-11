@@ -49,10 +49,9 @@ function App() {
   }
 
   const addNewResumeData = (event) => {
-    console.log(resume.education)
     const fieldType = event.currentTarget.dataset.fieldType;
     setResume((prevResume) => {
-      if (fieldType === 'education') {
+      if (fieldType === RESUME_KEYS.EDUCATION) {
         return { 
           ...prevResume,
           education: [
@@ -64,12 +63,10 @@ function App() {
     });
   }
 
-  const educationFieldType = "education";
-
   return (
     <>
      <ContactFields onChange={handleResumeInput} resumeData={resume} />
-     <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} fieldType={educationFieldType}/>
+     <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} fieldType={RESUME_KEYS.EDUCATION}/>
     </>
   )
 }
