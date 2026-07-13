@@ -21,8 +21,7 @@ function App() {
     return Object.fromEntries(entries);
   });
 
-  const handleResumeInput = (event) => {
-    const {name, value} = event.currentTarget;
+  const handleResumeInput = (name, value) => {
     setResume((prevResume) => {
       return {
         ...prevResume,

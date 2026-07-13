@@ -29,7 +29,16 @@ export function ContactFields({onChange, resumeData}) {
   return (
     <fieldset>
       <legend>Contact Details</legend>
-      {contactFieldsConfig.map(field => <FormField key={field.name} value={resumeData[field.name]} onChange={onChange} {...field}/>)}
+      {
+        contactFieldsConfig.map(field => 
+          <FormField 
+            key={field.name} 
+            value={resumeData[field.name]} 
+            onChange={(event) => onChange(field.name, event.currentTarget.value)} 
+            {...field}
+          />
+        )
+      }
     </fieldset>
   )
 }
