@@ -31,11 +31,7 @@ function App() {
     });
   }
 
-  const handleEntryFieldChange = (event) => {
-    const {name, value} = event.currentTarget;
-    const fieldType = event.currentTarget.dataset.fieldType;
-    const entryId = event.currentTarget.dataset.entryId;
-
+  const handleEntryFieldChange = (fieldType, entryId, name, value) => {
     setResume((prevResume) => {
       const updatedArray = prevResume[fieldType].map((entry) => {
         return entry.id === entryId ? {...entry, [name]: value} : entry

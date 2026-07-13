@@ -41,7 +41,7 @@ function EducationEntry({entry, onChange, fieldType}) {
         <FormField 
           key={field.name}
           value={entry[field.name]}
-          onChange={onChange}
+          onChange={(event) => onChange(fieldType, entry.id, field.name, event.currentTarget.value)}
           name={field.name}
           label={field.label}
           type={field.type}
