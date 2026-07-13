@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { ContactFields } from './components/form/ContactFields'
 import { EducationFields } from './components/form/EducationFields';
-import { createEducationEntry } from './utils/resumeTemplates';
+import { createEducationEntry, createWorkExperienceEntry } from './utils/resumeTemplates';
 import { RESUME_KEYS } from './constants/resumeKeys';
 
 function App() {
@@ -44,19 +44,14 @@ function App() {
     })
   }
 
-  const addNewResumeData = (event) => {
-    const fieldType = event.currentTarget.dataset.fieldType;
-    setResume((prevResume) => {
-      if (fieldType === RESUME_KEYS.EDUCATION) {
-        return { 
-          ...prevResume,
-          education: [
-            ...prevResume.education,
-            createEducationEntry(),
-          ]
-        }
-      }
-    });
+  const addNewResumeData = (fieldType) => {
+    setResume((prevResume) => ({
+      ...prevResume,
+      [fieldType]: [
+        ...prevResume[fieldType],
+        fieldType === RESUME_KEYS.EDUCATION ? createEducationEntry() : createWorkExperienceEntry()
+      ]
+    }));
   }
 
   return (
