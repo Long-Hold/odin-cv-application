@@ -13,12 +13,18 @@ export const RESUME_KEYS = {
   WORK_EXPERIENCE: 'workExperience',
 }
 
+/**
+ * This object exports key names used by nested objects, e.g: education: [{object}]
+ */
 export const EDUCATION_KEYS = {
   SCHOOL_NAME: 'schoolName',
   DEGREE: 'degree',
   DATE_RANGE: 'dateRange',
 }
 
+/**
+ * This object exports key names intended to be used by nested objects, e.g: workExperience: [{object}]
+ */
 export const WORK_EXPERIENCE_KEYS = {
   COMPANY_NAME: 'companyName',
   POSITION: 'position',
