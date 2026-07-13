@@ -4,6 +4,7 @@ import { ContactFields } from './components/form/ContactFields'
 import { EducationFields } from './components/form/EducationFields';
 import { createEducationEntry, createWorkExperienceEntry } from './utils/resumeTemplates';
 import { RESUME_KEYS } from './constants/resumeKeys';
+import { WorkExperienceFields } from './components/form/WorkExperienceFields';
 
 function App() {
   /**
@@ -57,6 +58,7 @@ function App() {
     <>
      <ContactFields onChange={handleResumeInput} resumeData={resume} />
      <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} />
+     <WorkExperienceFields onChange={handleEntryFieldChange} resumeData={resume.workExperience} addField={addNewResumeData} />
     </>
   )
 }
