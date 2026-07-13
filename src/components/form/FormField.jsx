@@ -16,7 +16,7 @@
  * @returns {JSX.Element} A fragment containing a `<label>` and its corresponding `<input>` or `<textarea>`.
  */
 export function FormField({
-  name, label, type, placeholder, autoCompleteType, value, onChange, multiLine = false, entryId = null, fieldType = null
+  name, label, type, placeholder, autoCompleteType, value, onChange, multiLine = false, entryId = null
 }) {
   /**
    * For an input group from something like the education or work experience fieldsets, we have multiple
@@ -35,8 +35,6 @@ export function FormField({
             id={fieldId}
             value={value}
             onChange={onChange}
-            data-field-type={fieldType}
-            data-entry-id={entryId}
           />
         ) : (
           <input
@@ -47,8 +45,6 @@ export function FormField({
             autoComplete={autoCompleteType}
             value={value}
             onChange={onChange}
-            data-field-type={fieldType}
-            data-entry-id={entryId}
           />
         )}
       </div>
