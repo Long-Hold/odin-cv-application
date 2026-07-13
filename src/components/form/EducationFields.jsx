@@ -22,7 +22,7 @@ const educationFieldsConfig = [
   }
 ]
 
-export function EducationFields({onChange, resumeData, addField, fieldType}) {
+export function EducationFields({onChange, resumeData, addField}) {
   return (
     <>
       <fieldset className="educationFields">

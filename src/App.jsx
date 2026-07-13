@@ -57,7 +57,7 @@ function App() {
   return (
     <>
      <ContactFields onChange={handleResumeInput} resumeData={resume} />
-     <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} fieldType={RESUME_KEYS.EDUCATION}/>
+     <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} />
     </>
   )
 }
