@@ -1,5 +1,5 @@
 import { FormField } from "./FormField";
-import { EDUCATION_KEYS } from "../../constants/resumeKeys";
+import { EDUCATION_KEYS, RESUME_KEYS } from "../../constants/resumeKeys";
 
 const educationFieldsConfig = [
   {
@@ -27,27 +27,26 @@ export function EducationFields({onChange, resumeData, addField, fieldType}) {
     <>
       <fieldset className="educationFields">
         <legend>Education</legend>
-        {resumeData.map(entry => <EducationEntry key={entry.id} entry={entry} onChange={onChange} fieldType={fieldType}/> )}
-        <button type="button" data-field-type={fieldType} onClick={addField}>Add Education Field</button>
+        {resumeData.map(entry => <EducationEntry key={entry.id} entry={entry} onChange={onChange} /> )}
+        <button type="button" onClick={() => addField(RESUME_KEYS.EDUCATION)}>Add Education Field</button>
       </fieldset>
     </>
   )
 }
 
-function EducationEntry({entry, onChange, fieldType}) {
+function EducationEntry({entry, onChange}) {
   return (
     <div>
       {educationFieldsConfig.map(field => (
         <FormField 
           key={field.name}
           value={entry[field.name]}
-          onChange={(event) => onChange(fieldType, entry.id, field.name, event.currentTarget.value)}
+          onChange={(event) => onChange(RESUME_KEYS.EDUCATION, entry.id, field.name, event.currentTarget.value)}
           name={field.name}
           label={field.label}
           type={field.type}
           placeholder={field.placeholder}
           entryId={entry.id}
-          fieldType={fieldType}
         />
       ))}
     </div>
