@@ -61,10 +61,21 @@ export function useResumeState() {
     }));
   }
 
+  const removeResumeEntry = (fieldType, entryId) => {
+    setResume((prevResume) => {
+      const updatedArray = prevResume[fieldType].filter(entry => entry.id !== entryId);
+      return {
+        ...prevResume,
+        [fieldType] : updatedArray
+      }
+    })
+  }
+
   return {
     resume,
     handleContactChange,
     handleEntryFieldChange,
-    addNewResumeData
+    addNewResumeData,
+    removeResumeEntry,
   }
 }
