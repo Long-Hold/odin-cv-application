@@ -22,19 +22,19 @@ const educationFieldsConfig = [
   }
 ]
 
-export function EducationFields({onChange, resumeData, addField}) {
+export function EducationFields({onChange, resumeData, addField, removeEntry}) {
   return (
     <>
       <fieldset className="educationFields">
         <legend>Education</legend>
-        {resumeData.map((entry, index) => <EducationEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} /> )}
+        {resumeData.map((entry, index) => <EducationEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} removeEntry={removeEntry} /> )}
         <button type="button" onClick={() => addField(RESUME_KEYS.EDUCATION)}>Add Education Field</button>
       </fieldset>
     </>
   )
 }
 
-function EducationEntry({index, entry, onChange}) {
+function EducationEntry({index, entry, onChange, removeEntry}) {
   return (
     <fieldset className="resumeEntry educationEntry">
       <legend>Education Entry {index}</legend>
@@ -50,6 +50,7 @@ function EducationEntry({index, entry, onChange}) {
             entryId={entry.id}
           />
         ))}
+        <button type="button" onClick={() => removeEntry(RESUME_KEYS.EDUCATION, entry.id)}>Remove Entry</button>
     </fieldset>
   )
 }

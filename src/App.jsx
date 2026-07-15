@@ -8,7 +8,7 @@ function App() {
    * As the user enters data into the form, this object receives the most current state, and
    * reflects it in the resume template.
    */
-  const {resume, handleContactChange, handleEntryFieldChange, addNewResumeData} = useResumeState();
+  const {resume, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry} = useResumeState();
 
   return (
     <>
@@ -17,6 +17,7 @@ function App() {
         handleContactChange={handleContactChange}
         handleEntryFieldChange={handleEntryFieldChange}
         addNewResumeData={addNewResumeData}
+        removeResumeEntry={removeResumeEntry}
       />
     </>
   )

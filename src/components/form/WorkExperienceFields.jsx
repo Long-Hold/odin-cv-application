@@ -22,19 +22,19 @@ const workExperienceFieldsConfig = [
   }
 ]
 
-export function WorkExperienceFields({onChange, resumeData, addField}) {
+export function WorkExperienceFields({onChange, resumeData, addField, removeEntry}) {
   return (
     <>
       <fieldset className="workExperienceFields">
         <legend>Work Experience</legend>
-        {resumeData.map((entry, index) => <WorkExperienceEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} />)}
+        {resumeData.map((entry, index) => <WorkExperienceEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} removeEntry={removeEntry} />)}
         <button type="button" onClick={() => addField(RESUME_KEYS.WORK_EXPERIENCE)}>Add Work Experience</button>
       </fieldset>
     </>
   )
 }
 
-function WorkExperienceEntry({index, entry, onChange}) {
+function WorkExperienceEntry({index, entry, onChange, removeEntry}) {
   return (
     <fieldset className="resumeEntry workExperienceEntry">
       <legend>Work Experience Entry {index}</legend>
@@ -50,6 +50,7 @@ function WorkExperienceEntry({index, entry, onChange}) {
             entryId={entry.id}
           />
         ))}
+        <button type="button" onClick={() => removeEntry(RESUME_KEYS.WORK_EXPERIENCE, entry.id)}>Remove Entry</button>
     </fieldset>
   )
 }

@@ -17,6 +17,7 @@ import { createEducationEntry, createWorkExperienceEntry } from "../utils/resume
  * @returns {function} return.handleContactChange - Updates a top-level resume field (e.g. name, email, number).
  * @returns {function} return.handleEntryFieldChange - Updates a single field within an education or work experience entry, matched by entry id.
  * @returns {function} return.addNewResumeData - Appends a new blank entry (education or work experience) to the corresponding array.
+ * @returns {function} return.removeResumeEntry - Removes an existing entry that matches the captured entry.id value from the corresponding array.
  */
 export function useResumeState() {
   const [resume, setResume] = useState(() => {
