@@ -10,11 +10,11 @@ function App() {
    * As the user enters data into the form, this object receives the most current state, and
    * reflects it in the resume template.
    */
-  const {resume, handleResumeInput, handleEntryFieldChange, addNewResumeData} = useResumeState();
+  const {resume, handleContactChange, handleEntryFieldChange, addNewResumeData} = useResumeState();
 
   return (
     <>
-     <ContactFields onChange={handleResumeInput} resumeData={resume} />
+     <ContactFields onChange={handleContactChange} resumeData={resume} />
      <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} />
      <WorkExperienceFields onChange={handleEntryFieldChange} resumeData={resume.workExperience} addField={addNewResumeData} />
     </>

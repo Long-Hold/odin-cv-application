@@ -14,7 +14,7 @@ import { createEducationEntry, createWorkExperienceEntry } from "../utils/resume
  *
  * @returns {Object} An object containing:
  * @returns {Object} return.resume - The current resume state object.
- * @returns {function} return.handleResumeInput - Updates a top-level resume field (e.g. name, email, number).
+ * @returns {function} return.handleContactChange - Updates a top-level resume field (e.g. name, email, number).
  * @returns {function} return.handleEntryFieldChange - Updates a single field within an education or work experience entry, matched by entry id.
  * @returns {function} return.addNewResumeData - Appends a new blank entry (education or work experience) to the corresponding array.
  */
@@ -29,7 +29,7 @@ export function useResumeState() {
     return Object.fromEntries(entries);
   });
 
-  const handleResumeInput = (name, value) => {
+  const handleContactChange = (name, value) => {
     setResume((prevResume) => {
       return {
         ...prevResume,
@@ -63,7 +63,7 @@ export function useResumeState() {
 
   return {
     resume,
-    handleResumeInput,
+    handleContactChange,
     handleEntryFieldChange,
     addNewResumeData
   }
