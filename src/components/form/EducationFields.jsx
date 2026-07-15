@@ -27,28 +27,29 @@ export function EducationFields({onChange, resumeData, addField}) {
     <>
       <fieldset className="educationFields">
         <legend>Education</legend>
-        {resumeData.map(entry => <EducationEntry key={entry.id} entry={entry} onChange={onChange} /> )}
+        {resumeData.map((entry, index) => <EducationEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} /> )}
         <button type="button" onClick={() => addField(RESUME_KEYS.EDUCATION)}>Add Education Field</button>
       </fieldset>
     </>
   )
 }
 
-function EducationEntry({entry, onChange}) {
+function EducationEntry({index, entry, onChange}) {
   return (
-    <div>
-      {educationFieldsConfig.map(field => (
-        <FormField 
-          key={field.name}
-          value={entry[field.name]}
-          onChange={(event) => onChange(RESUME_KEYS.EDUCATION, entry.id, field.name, event.currentTarget.value)}
-          name={field.name}
-          label={field.label}
-          type={field.type}
-          placeholder={field.placeholder}
-          entryId={entry.id}
-        />
-      ))}
-    </div>
+    <fieldset className="resumeEntry educationEntry">
+      <legend>Education Entry {index}</legend>
+        {educationFieldsConfig.map(field => (
+          <FormField 
+            key={field.name}
+            value={entry[field.name]}
+            onChange={(event) => onChange(RESUME_KEYS.EDUCATION, entry.id, field.name, event.currentTarget.value)}
+            name={field.name}
+            label={field.label}
+            type={field.type}
+            placeholder={field.placeholder}
+            entryId={entry.id}
+          />
+        ))}
+    </fieldset>
   )
 }

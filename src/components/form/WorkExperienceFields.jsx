@@ -27,28 +27,29 @@ export function WorkExperienceFields({onChange, resumeData, addField}) {
     <>
       <fieldset className="workExperienceFields">
         <legend>Work Experience</legend>
-        {resumeData.map(entry => <WorkExperienceEntry key={entry.id} entry={entry} onChange={onChange} />)}
+        {resumeData.map((entry, index) => <WorkExperienceEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} />)}
         <button type="button" onClick={() => addField(RESUME_KEYS.WORK_EXPERIENCE)}>Add Work Experience</button>
       </fieldset>
     </>
   )
 }
 
-function WorkExperienceEntry({entry, onChange}) {
+function WorkExperienceEntry({index, entry, onChange}) {
   return (
-    <div>
-      {workExperienceFieldsConfig.map(field => (
-        <FormField 
-          key={field.name}
-          value={entry[field.name]}
-          onChange={(event) => onChange(RESUME_KEYS.WORK_EXPERIENCE, entry.id, field.name, event.currentTarget.value)}
-          name={field.name}
-          label={field.label}
-          type={field.type}
-          placeholder={field.placeholder}
-          entryId={entry.id}
-        />
-      ))}
-    </div>
+    <fieldset className="resumeEntry workExperienceEntry">
+      <legend>Work Experience Entry {index}</legend>
+        {workExperienceFieldsConfig.map(field => (
+          <FormField 
+            key={field.name}
+            value={entry[field.name]}
+            onChange={(event) => onChange(RESUME_KEYS.WORK_EXPERIENCE, entry.id, field.name, event.currentTarget.value)}
+            name={field.name}
+            label={field.label}
+            type={field.type}
+            placeholder={field.placeholder}
+            entryId={entry.id}
+          />
+        ))}
+    </fieldset>
   )
 }

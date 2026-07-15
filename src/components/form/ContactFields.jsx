@@ -27,7 +27,7 @@ const contactFieldsConfig = [
 
 export function ContactFields({onChange, resumeData}) {
   return (
-    <fieldset>
+    <fieldset className="contactFields">
       <legend>Contact Details</legend>
       {
         contactFieldsConfig.map(field => 
