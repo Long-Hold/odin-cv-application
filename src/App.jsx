@@ -1,8 +1,6 @@
 import './App.css'
 import { useResumeState } from './hooks/useResumeState';
-import { ContactFields } from './components/form/ContactFields'
-import { EducationFields } from './components/form/EducationFields';
-import { WorkExperienceFields } from './components/form/WorkExperienceFields';
+import { ResumeForm } from './components/form/ResumeForm';
 
 function App() {
   /**
@@ -14,9 +12,12 @@ function App() {
 
   return (
     <>
-     <ContactFields onChange={handleContactChange} resumeData={resume} />
-     <EducationFields onChange={handleEntryFieldChange} resumeData={resume.education} addField={addNewResumeData} />
-     <WorkExperienceFields onChange={handleEntryFieldChange} resumeData={resume.workExperience} addField={addNewResumeData} />
+      <ResumeForm 
+        resumeObject={resume}
+        handleContactChange={handleContactChange}
+        handleEntryFieldChange={handleEntryFieldChange}
+        addNewResumeData={addNewResumeData}
+      />
     </>
   )
 }
