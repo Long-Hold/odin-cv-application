@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import './App.css'
+import { useResumeState } from './hooks/useResumeState';
 import { ContactFields } from './components/form/ContactFields'
 import { EducationFields } from './components/form/EducationFields';
-import { createEducationEntry, createWorkExperienceEntry } from './utils/resumeTemplates';
-import { RESUME_KEYS } from './constants/resumeKeys';
 import { WorkExperienceFields } from './components/form/WorkExperienceFields';
 
 function App() {
@@ -12,47 +10,7 @@ function App() {
    * As the user enters data into the form, this object receives the most current state, and
    * reflects it in the resume template.
    */
-  const [resume, setResume] = useState(() => {
-    const entries = Object.values(RESUME_KEYS).map((key) => {
-      if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE)
-        return [key, []];
-      return [key, ''];
-    })
-
-    return Object.fromEntries(entries);
-  });
-
-  const handleResumeInput = (name, value) => {
-    setResume((prevResume) => {
-      return {
-        ...prevResume,
-        [name]: value
-      }
-    });
-  }
-
-  const handleEntryFieldChange = (fieldType, entryId, name, value) => {
-    setResume((prevResume) => {
-      const updatedArray = prevResume[fieldType].map((entry) => {
-        return entry.id === entryId ? {...entry, [name]: value} : entry
-      });
-      
-      return {
-        ...prevResume,
-        [fieldType] : updatedArray
-      }
-    })
-  }
-
-  const addNewResumeData = (fieldType) => {
-    setResume((prevResume) => ({
-      ...prevResume,
-      [fieldType]: [
-        ...prevResume[fieldType],
-        fieldType === RESUME_KEYS.EDUCATION ? createEducationEntry() : createWorkExperienceEntry()
-      ]
-    }));
-  }
+  const {resume, handleResumeInput, handleEntryFieldChange, addNewResumeData} = useResumeState();
 
   return (
     <>
