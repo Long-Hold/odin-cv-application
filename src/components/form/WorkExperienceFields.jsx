@@ -19,6 +19,12 @@ const workExperienceFieldsConfig = [
     label: "Employment Term",
     type: "text",
     placeholder: "2020.09 - ongoing"
+  },
+  {
+    name: WORK_EXPERIENCE_KEYS.JOB_DESCRIPTION,
+    label: "Job Description",
+    multiLine: true,
+    placeholder: "I took a hands-on approach with the projects handed to me, particularly with the shader algorithms to...",
   }
 ]
 
@@ -43,11 +49,8 @@ function WorkExperienceEntry({index, entry, onChange, removeEntry}) {
             key={field.name}
             value={entry[field.name]}
             onChange={(event) => onChange(RESUME_KEYS.WORK_EXPERIENCE, entry.id, field.name, event.currentTarget.value)}
-            name={field.name}
-            label={field.label}
-            type={field.type}
-            placeholder={field.placeholder}
             entryId={entry.id}
+            {...field}
           />
         ))}
         <button type="button" onClick={() => removeEntry(RESUME_KEYS.WORK_EXPERIENCE, entry.id)}>Remove Entry</button>
