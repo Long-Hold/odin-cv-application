@@ -43,11 +43,8 @@ function EducationEntry({index, entry, onChange, removeEntry}) {
             key={field.name}
             value={entry[field.name]}
             onChange={(event) => onChange(RESUME_KEYS.EDUCATION, entry.id, field.name, event.currentTarget.value)}
-            name={field.name}
-            label={field.label}
-            type={field.type}
-            placeholder={field.placeholder}
             entryId={entry.id}
+            {...field}
           />
         ))}
         <button type="button" onClick={() => removeEntry(RESUME_KEYS.EDUCATION, entry.id)}>Remove Entry</button>
