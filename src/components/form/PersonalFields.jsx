@@ -1,7 +1,7 @@
 import { FormField } from "./FormField";
 import { RESUME_KEYS } from "../../constants/resumeKeys";
 
-const contactFieldsConfig = [
+const personalFieldsConfig = [
   {
     name: RESUME_KEYS.NAME,
     label: "Full Name",
@@ -31,12 +31,12 @@ const contactFieldsConfig = [
   }
 ]
 
-export function ContactFields({onChange, resumeData}) {
+export function PersonalFields({onChange, resumeData}) {
   return (
-    <fieldset className="contactFields">
-      <legend>Contact Details</legend>
+    <fieldset className="personalFields">
+      <legend>Personal Details</legend>
       {
-        contactFieldsConfig.map(field => 
+        personalFieldsConfig.map(field => 
           <FormField 
             key={field.name} 
             value={resumeData[field.name]} 

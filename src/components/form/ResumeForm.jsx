@@ -1,4 +1,4 @@
-import { ContactFields } from "./ContactFields";
+import { PersonalFields } from "./PersonalFields";
 import { EducationFields } from "./EducationFields";
 import { WorkExperienceFields } from "./WorkExperienceFields";
 
@@ -10,7 +10,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
         onSubmit={(event) => event.preventDefault}
         noValidate
       >
-        <ContactFields 
+        <PersonalFields 
           onChange={handleContactChange} 
           resumeData={resumeObject} 
         />
