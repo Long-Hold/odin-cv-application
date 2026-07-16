@@ -9,6 +9,7 @@ export const RESUME_KEYS = {
   NAME: 'name',
   EMAIL: 'email',
   NUMBER: 'number',
+  SUMMARY: 'summary',
   EDUCATION: 'education',
   WORK_EXPERIENCE: 'workExperience',
 }

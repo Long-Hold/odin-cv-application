@@ -22,6 +22,12 @@ const contactFieldsConfig = [
     type: "tel",
     placeholder: "+0 123 456 7890",
     autoCompleteType: "tel",
+  },
+  {
+    name: RESUME_KEYS.SUMMARY,
+    label: "Professional Summary",
+    multiLine: true,
+    placeholder: "Describe your unique talents and interests...."
   }
 ]
 
