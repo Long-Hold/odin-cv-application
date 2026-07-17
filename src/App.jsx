@@ -1,6 +1,7 @@
 import './App.css'
 import { useResumeState } from './hooks/useResumeState';
 import { ResumeForm } from './components/form/ResumeForm';
+import { ResumeTemplate } from './components/display/ResumeTemplate';
 
 function App() {
   /**
@@ -18,6 +19,10 @@ function App() {
         handleEntryFieldChange={handleEntryFieldChange}
         addNewResumeData={addNewResumeData}
         removeResumeEntry={removeResumeEntry}
+      />
+
+      <ResumeTemplate 
+        resumeObject={resume}
       />
     </>
   )
