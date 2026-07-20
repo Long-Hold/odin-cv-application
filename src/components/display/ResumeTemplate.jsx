@@ -1,3 +1,4 @@
+import { EducationDetails } from "./EducationDetails";
 import { PersonalDetails } from "./PersonalDetails";
 
 export function ResumeTemplate({resumeObject}) {
@@ -8,6 +9,10 @@ export function ResumeTemplate({resumeObject}) {
         email={resumeObject.email}
         number={resumeObject.number}
         summary={resumeObject.summary}
+      />
+
+      <EducationDetails 
+        educationArray={resumeObject.education}
       />
     </section>
   )
