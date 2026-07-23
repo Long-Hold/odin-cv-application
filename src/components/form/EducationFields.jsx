@@ -1,5 +1,6 @@
 import { FormField } from "./FormField";
 import { EDUCATION_KEYS, RESUME_KEYS } from "../../constants/resumeKeys";
+import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry";
 
 const educationFieldsConfig = [
   {
@@ -27,18 +28,23 @@ export function EducationFields({onChange, resumeData, addField, removeEntry}) {
     <>
       <fieldset className="educationFields">
         <legend>Education</legend>
-        {resumeData.map((entry, index) => <EducationEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} removeEntry={removeEntry} /> )}
+        <ol>
+          {resumeData.map(entry => <EducationEntry key={entry.id} entry={entry} onChange={onChange} removeEntry={removeEntry} /> )}
+        </ol>
         <button type="button" onClick={() => addField(RESUME_KEYS.EDUCATION)}>Add Education Field</button>
       </fieldset>
     </>
   )
 }
 
-function EducationEntry({index, entry, onChange, removeEntry}) {
+function EducationEntry({entry, onChange, removeEntry}) {
   return (
-    <fieldset className="resumeEntry educationEntry">
-      <legend>Education Entry {index}</legend>
-        {educationFieldsConfig.map(field => (
+    <li>
+      <CollapsibleFieldEntry
+        detailsClass={"resumeEntry educationEntry"}
+        summaryText={entry[EDUCATION_KEYS.SCHOOL_NAME] ? entry[EDUCATION_KEYS.SCHOOL_NAME] : "New Education Entry"}
+        legendText={"Education Entry"}
+        entryComponent={educationFieldsConfig.map(field => (
           <FormField 
             key={field.name}
             value={entry[field.name]}
@@ -47,7 +53,8 @@ function EducationEntry({index, entry, onChange, removeEntry}) {
             {...field}
           />
         ))}
-        <button type="button" onClick={() => removeEntry(RESUME_KEYS.EDUCATION, entry.id)}>Remove Entry</button>
-    </fieldset>
+      />
+      <button type="button" onClick={() => removeEntry(RESUME_KEYS.EDUCATION, entry.id)}>Remove Entry</button>
+    </li>
   )
 }
