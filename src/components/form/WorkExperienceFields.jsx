@@ -1,5 +1,6 @@
 import { RESUME_KEYS, WORK_EXPERIENCE_KEYS } from "../../constants/resumeKeys"
 import { FormField } from "./FormField"
+import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry"
 
 const workExperienceFieldsConfig = [
   {
@@ -33,18 +34,23 @@ export function WorkExperienceFields({onChange, resumeData, addField, removeEntr
     <>
       <fieldset className="workExperienceFields">
         <legend>Work Experience</legend>
-        {resumeData.map((entry, index) => <WorkExperienceEntry key={entry.id} index={index + 1} entry={entry} onChange={onChange} removeEntry={removeEntry} />)}
+        <ol>
+          {resumeData.map(entry => <WorkExperienceEntry key={entry.id} entry={entry} onChange={onChange} removeEntry={removeEntry} />)}
+        </ol>
         <button type="button" onClick={() => addField(RESUME_KEYS.WORK_EXPERIENCE)}>Add Work Experience</button>
       </fieldset>
     </>
   )
 }
 
-function WorkExperienceEntry({index, entry, onChange, removeEntry}) {
+function WorkExperienceEntry({entry, onChange, removeEntry}) {
   return (
-    <fieldset className="resumeEntry workExperienceEntry">
-      <legend>Work Experience Entry {index}</legend>
-        {workExperienceFieldsConfig.map(field => (
+    <li>
+      <CollapsibleFieldEntry
+        detailsClass={"resumeEntry workExperienceEntry"}
+        summaryText={entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] ? entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] : "New Work Experience Entry"}
+        legendText={"Work Experience Entry"}
+        entryComponent={workExperienceFieldsConfig.map(field => (
           <FormField 
             key={field.name}
             value={entry[field.name]}
@@ -53,7 +59,8 @@ function WorkExperienceEntry({index, entry, onChange, removeEntry}) {
             {...field}
           />
         ))}
-        <button type="button" onClick={() => removeEntry(RESUME_KEYS.WORK_EXPERIENCE, entry.id)}>Remove Entry</button>
-    </fieldset>
+      />
+      <button type="button" onClick={() => removeEntry(RESUME_KEYS.WORK_EXPERIENCE, entry.id)}>Remove Entry</button>
+    </li>
   )
 }
