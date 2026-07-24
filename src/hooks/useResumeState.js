@@ -20,7 +20,7 @@ import { createResumeEntry } from "../utils/resumeTemplates";
 export function useResumeState() {
   const [resume, setResume] = useState(() => {
     const entries = Object.values(RESUME_KEYS).map((key) => {
-      if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE)
+      if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE || key === RESUME_KEYS.SKILLS)
         return [key, []];
       return [key, ''];
     })
