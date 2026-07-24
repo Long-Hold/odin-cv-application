@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RESUME_KEYS } from "../constants/resumeKeys";
-import { createEducationEntry, createWorkExperienceEntry } from "../utils/resumeTemplates";
+import { createResumeEntry } from "../utils/resumeTemplates";
 
 
 /**
@@ -9,8 +9,6 @@ import { createEducationEntry, createWorkExperienceEntry } from "../utils/resume
  * components consuming this hook don't need direct access to `setResume`.
  *
  * @see RESUME_KEYS
- * @see createEducationEntry
- * @see createWorkExperienceEntry
  *
  * @returns {Object} An object containing:
  * @returns {Object} return.resume - The current resume state object.
@@ -57,7 +55,7 @@ export function useResumeState() {
       ...prevResume,
       [fieldType]: [
         ...prevResume[fieldType],
-        fieldType === RESUME_KEYS.EDUCATION ? createEducationEntry() : createWorkExperienceEntry()
+        createResumeEntry(fieldType)
       ]
     }));
   }
