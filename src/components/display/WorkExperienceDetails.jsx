@@ -3,6 +3,7 @@ import styles from "./styles/ResumeTemplate.module.css"
 export function WorkExperienceDetails({workExperienceArray}) {
   return (
     <section className="workExperienceDetails">
+      <h2>Experience</h2>
       {workExperienceArray.map(entry => <WorkExperienceEntry key={entry.id} {...entry} />)}
     </section>
   )
@@ -11,7 +12,7 @@ export function WorkExperienceDetails({workExperienceArray}) {
 function WorkExperienceEntry({companyName, position, jobDescription, dateRange}) {
   return (
     <section className="resumeEntry workExperienceEntry">
-      <h2>{companyName}</h2>
+      <h3>{companyName}</h3>
       <p>{position}</p>
       <p>{dateRange}</p>
       <p className={styles.multiLine}>{jobDescription}</p>

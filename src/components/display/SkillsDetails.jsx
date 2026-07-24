@@ -1,6 +1,7 @@
 export function SkillsDetails({skillsArray}) {
   return (
     <section className="skillsDetails">
+      <h2>Skills</h2>
       <ul>
         {skillsArray.map(entry => 
           <SkillEntry key={entry.id} {...entry}/>

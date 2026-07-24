@@ -1,6 +1,7 @@
 export function EducationDetails({educationArray}) {
   return (
     <section className="educationDetails">
+      <h2>Education</h2>
       {educationArray.map(entry =>
         <EducationEntry key={entry.id} {...entry} />
       )}
@@ -11,7 +12,7 @@ export function EducationDetails({educationArray}) {
 function EducationEntry({schoolName, degree, dateRange}) {
   return (
     <section className=" resumeEntry educationEntry">
-      <h2>{schoolName}</h2>
+      <h3>{schoolName}</h3>
       <p>{degree}</p>
       <p>{dateRange}</p>
     </section>
