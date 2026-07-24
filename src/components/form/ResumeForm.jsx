@@ -1,6 +1,7 @@
 import { PersonalFields } from "./PersonalFields";
 import { EducationFields } from "./EducationFields";
 import { WorkExperienceFields } from "./WorkExperienceFields";
+import { SkillsFields } from "./SkillsFields";
 
 export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
   return (
@@ -26,6 +27,13 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           onChange={handleEntryFieldChange} 
           resumeData={resumeObject.workExperience} 
           addField={addNewResumeData} 
+          removeEntry={removeResumeEntry}
+        />
+
+        <SkillsFields 
+          onChange={handleEntryFieldChange}
+          resumeData={resumeObject.skills}
+          addField={addNewResumeData}
           removeEntry={removeResumeEntry}
         />
       </form>
