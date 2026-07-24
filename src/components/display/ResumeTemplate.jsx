@@ -1,5 +1,6 @@
 import { EducationDetails } from "./EducationDetails";
 import { PersonalDetails } from "./PersonalDetails";
+import { SkillsDetails } from "./SkillsDetails";
 import { WorkExperienceDetails } from "./WorkExperienceDetails";
 
 export function ResumeTemplate({resumeObject}) {
@@ -18,6 +19,10 @@ export function ResumeTemplate({resumeObject}) {
 
       <WorkExperienceDetails 
         workExperienceArray={resumeObject.workExperience}
+      />
+
+      <SkillsDetails 
+        skillsArray={resumeObject.skills}
       />
     </section>
   )
