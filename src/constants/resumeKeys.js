@@ -12,6 +12,7 @@ export const RESUME_KEYS = {
   SUMMARY: 'summary',
   EDUCATION: 'education',
   WORK_EXPERIENCE: 'workExperience',
+  SKILLS: 'skills',
 }
 
 /**
@@ -31,4 +32,11 @@ export const WORK_EXPERIENCE_KEYS = {
   POSITION: 'position',
   JOB_DESCRIPTION: 'jobDescription',
   DATE_RANGE: 'dateRange',
+}
+
+/**
+ * This object exports name keys that are used by nested objects inside RESUME_KEYS.SKILLS array, e.g. skills[{skill}]
+ */
+export const SKILLS_KEYS = {
+  SKILL: 'skill',
 }
