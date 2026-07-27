@@ -2,6 +2,7 @@ import { PersonalFields } from "./PersonalFields";
 import { EducationFields } from "./EducationFields";
 import { WorkExperienceFields } from "./WorkExperienceFields";
 import { SkillsFields } from "./SkillsFields";
+import "./styles/formStyles.css"
 
 export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
   return (
@@ -42,7 +43,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           addField={addNewResumeData}
           removeEntry={removeResumeEntry}
         />
-        
+
         <button 
           type="button" 
           className="toggleHideFormBtn" 

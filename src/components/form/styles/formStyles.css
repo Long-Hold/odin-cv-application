@@ -1,0 +1,5 @@
+@media screen and (width > 48rem) {
+  .toggleHideFormBtn {
+    display: none;
+  }
+}
