@@ -2,10 +2,11 @@ import { EducationDetails } from "./EducationDetails";
 import { PersonalDetails } from "./PersonalDetails";
 import { SkillsDetails } from "./SkillsDetails";
 import { WorkExperienceDetails } from "./WorkExperienceDetails";
+import styles from "./styles/ResumeTemplate.module.css";
 
 export function ResumeTemplate({resumeObject}) {
   return (
-    <section className="resumeTemplate">
+    <section className={styles.resumeTemplate}>
       <PersonalDetails 
         name={resumeObject.name}
         email={resumeObject.email}
