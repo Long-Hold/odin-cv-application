@@ -34,3 +34,9 @@ html {
 #root {
   display: contents;
 }
+
+/* Simple class that  */
+.hide {
+  visibility: hidden;
+  pointer-events: none;
+}
