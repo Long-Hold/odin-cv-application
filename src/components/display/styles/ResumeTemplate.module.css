@@ -1,3 +1,9 @@
 .multiLine {
   white-space: pre-line;
 }
+
+.resumeTemplate {
+  background-color: white;
+  width: 8.5in;
+  height: 11in;
+}
