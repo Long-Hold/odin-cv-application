@@ -5,11 +5,6 @@ body {
   flex-flow: row nowrap;
 }
 
-.resumeTemplate {
-  background-color: white;
-  width: 100%;
-}
-
 /* When viewed on mobile screens, the form should overlay the resume template */
 .resumeFormSection {
   position: absolute;
