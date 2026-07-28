@@ -2,8 +2,15 @@
   white-space: pre-line;
 }
 
+.resumeContainer {
+  flex: 1;
+  height: 100dvh;
+  height: 100vh;
+}
+
 .resumeTemplate {
   background-color: white;
   width: 8.5in;
   height: 11in;
+  zoom: var(--fit-scale);
 }
