@@ -1,19 +1,25 @@
 body {
   min-height: 100vh;
   min-height: 100dvh;
-  display: flex;
-  flex-flow: column nowrap;
+  display: grid;
+  grid-template-columns: auto;
+  place-content: center;
 }
 
 /* When viewed on mobile screens, the form should overlay the resume template */
 .resumeFormSection {
   position: absolute;
+  width: 100%;
+}
+
+.resumeFormSection, .resumeContainer {
+  padding: 1rem 0.4rem;
 }
 
 /* And then on larger screens, they will be laid out side by side */
 @media screen and (width > 48rem) {
   body {
-    flex-flow: row nowrap;
+    grid-template-columns: auto 1fr;
   }
   .resumeFormSection {
     position: static;
