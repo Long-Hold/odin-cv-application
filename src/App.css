@@ -2,15 +2,19 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
 }
 
 /* When viewed on mobile screens, the form should overlay the resume template */
 .resumeFormSection {
   position: absolute;
 }
+
 /* And then on larger screens, they will be laid out side by side */
 @media screen and (width > 48rem) {
+  body {
+    flex-flow: row nowrap;
+  }
   .resumeFormSection {
     position: static;
   }
