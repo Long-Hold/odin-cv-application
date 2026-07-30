@@ -1,4 +1,4 @@
-import styles from "./styles/ResumeTemplate.module.css"
+import "./styles/ResumeTemplate.css";
 
 export function WorkExperienceDetails({workExperienceArray}) {
   return (
@@ -15,7 +15,7 @@ function WorkExperienceEntry({companyName, position, jobDescription, dateRange})
       <h3>{companyName}</h3>
       <p>{position}</p>
       <p>{dateRange}</p>
-      <p className={styles.multiLine}>{jobDescription}</p>
+      <p className="multiLine">{jobDescription}</p>
     </section>
   )
 }

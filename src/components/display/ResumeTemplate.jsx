@@ -3,15 +3,15 @@ import { PersonalDetails } from "./PersonalDetails";
 import { SkillsDetails } from "./SkillsDetails";
 import { WorkExperienceDetails } from "./WorkExperienceDetails";
 import { useFitToContainer } from "../../hooks/useFitToContainer";
-import styles from "./styles/ResumeTemplate.module.css";
 import { useRef } from "react";
+import "./styles/ResumeTemplate.css";
 
 export function ResumeTemplate({resumeObject}) {
   const resumeContainerRef = useRef(null);
   useFitToContainer(resumeContainerRef);
   return (
-    <div ref={resumeContainerRef} className={styles.resumeContainer}>
-      <section className={styles.resumeTemplate}>
+    <div ref={resumeContainerRef} className="resumeContainer">
+      <section className="resumeTemplate">
         <PersonalDetails 
           name={resumeObject.name}
           email={resumeObject.email}

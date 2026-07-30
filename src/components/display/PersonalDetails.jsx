@@ -1,4 +1,4 @@
-import styles from "./styles/ResumeTemplate.module.css"
+import "./styles/ResumeTemplate.css";
 
 export function PersonalDetails({name, email, number, summary}) {
   return (
@@ -6,7 +6,7 @@ export function PersonalDetails({name, email, number, summary}) {
       <h1>{name}</h1>
       <p>{email}</p>
       <p>{number}</p>
-      <p className={styles.multiLine}>{summary}</p>
+      <p className="multiLine">{summary}</p>
     </section>
   )
 }
