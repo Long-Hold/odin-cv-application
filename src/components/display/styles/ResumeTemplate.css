@@ -11,8 +11,9 @@
 .resumeTemplate {
   background-color: white;
   width: 8.5in;
-  height: 11in;
+  min-height: 11in;
   zoom: var(--fit-scale);
   margin: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.355);
+  padding: 0.75in;
 }
