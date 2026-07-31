@@ -14,7 +14,7 @@ function WorkExperienceEntry({companyName, position, jobDescription, dateRange})
     <section className="resumeEntry workExperienceEntry">
       <h3>{companyName}</h3>
       <p>{position}</p>
-      <p>{dateRange}</p>
+      <p className="date">{dateRange}</p>
       <p className="multiLine">{jobDescription}</p>
     </section>
   )
