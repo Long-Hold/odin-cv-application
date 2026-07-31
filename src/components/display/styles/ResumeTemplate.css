@@ -16,4 +16,25 @@
   margin: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.355);
   padding: 0.75in;
+
+  /* Grid Styling */
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+    "PersonalDetails WorkExperienceDetails"
+    "SkillsDetails EducationDetails";
+
+  .personalDetails {
+    grid-area: PersonalDetails;
+  }
+  .workExperienceDetails {
+    grid-area: WorkExperienceDetails;
+  }
+  .skillsDetails {
+    grid-area: SkillsDetails;
+  }
+  .educationDetails {
+    grid-area: EducationDetails;
+  }
 }
