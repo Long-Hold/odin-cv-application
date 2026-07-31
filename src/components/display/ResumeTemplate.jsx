@@ -19,16 +19,16 @@ export function ResumeTemplate({resumeObject}) {
           summary={resumeObject.summary}
         />
 
-        <EducationDetails 
-          educationArray={resumeObject.education}
-        />
-
         <WorkExperienceDetails 
           workExperienceArray={resumeObject.workExperience}
         />
 
         <SkillsDetails 
           skillsArray={resumeObject.skills}
+        />
+
+        <EducationDetails 
+          educationArray={resumeObject.education}
         />
       </section>
     </div>
