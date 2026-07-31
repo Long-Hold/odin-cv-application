@@ -12,8 +12,8 @@ export function EducationDetails({educationArray}) {
 function EducationEntry({schoolName, degree, dateRange}) {
   return (
     <section className=" resumeEntry educationEntry">
-      <h3>{schoolName}</h3>
-      <p>{degree}</p>
+      <h3>{degree}</h3>
+      <p>{schoolName}</p>
       <p>{dateRange}</p>
     </section>
   )
