@@ -2,6 +2,7 @@ import './App.css'
 import { useResumeState } from './hooks/useResumeState';
 import { ResumeForm } from './components/form/ResumeForm';
 import { ResumeTemplate } from './components/display/ResumeTemplate';
+import { sampleResumeData } from './constants/sampleResumeData';
 
 function App() {
   /**
@@ -9,7 +10,7 @@ function App() {
    * As the user enters data into the form, this object receives the most current state, and
    * reflects it in the resume template.
    */
-  const {resume, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry} = useResumeState();
+  const {resume, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry} = useResumeState(sampleResumeData);
 
   return (
     <>
