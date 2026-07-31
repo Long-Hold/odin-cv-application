@@ -17,7 +17,7 @@ import { createResumeEntry } from "../utils/resumeTemplates";
  * @returns {function} return.addNewResumeData - Appends a new blank entry (education or work experience) to the corresponding array.
  * @returns {function} return.removeResumeEntry - Removes an existing entry that matches the captured entry.id value from the corresponding array.
  */
-export function useResumeState() {
+export function useResumeState(initialData = {}) {
   const [resume, setResume] = useState(() => {
     const entries = Object.values(RESUME_KEYS).map((key) => {
       if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE || key === RESUME_KEYS.SKILLS)
@@ -25,7 +25,10 @@ export function useResumeState() {
       return [key, ''];
     })
 
-    return Object.fromEntries(entries);
+    return {
+      ...Object.fromEntries(entries),
+      ...initialData
+    };
   });
 
   const handleContactChange = (name, value) => {
