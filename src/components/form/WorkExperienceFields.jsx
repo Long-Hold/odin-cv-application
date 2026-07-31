@@ -47,7 +47,7 @@ function WorkExperienceEntry({entry, onChange, removeEntry}) {
   return (
     <li>
       <CollapsibleFieldEntry
-        detailsClass={"resumeEntry workExperienceEntry"}
+        detailsClass={"workExperienceField"}
         summaryText={entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] ? entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] : "New Work Experience Entry"}
         legendText={"Work Experience Entry"}
         entryComponent={workExperienceFieldsConfig.map(field => (

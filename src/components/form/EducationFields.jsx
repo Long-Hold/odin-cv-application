@@ -41,7 +41,7 @@ function EducationEntry({entry, onChange, removeEntry}) {
   return (
     <li>
       <CollapsibleFieldEntry
-        detailsClass={"resumeEntry educationEntry"}
+        detailsClass={"educationField"}
         summaryText={entry[EDUCATION_KEYS.SCHOOL_NAME] ? entry[EDUCATION_KEYS.SCHOOL_NAME] : "New Education Entry"}
         legendText={"Education Entry"}
         entryComponent={educationFieldsConfig.map(field => (
