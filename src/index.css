@@ -28,7 +28,7 @@ but still allows screen readers to access them */
 }
 
 html {
-  background-color: rgb(137, 135, 135);
+  background-color: #e8e5df;
 }
 
 #root {
