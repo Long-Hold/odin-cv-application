@@ -12,6 +12,20 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'fira_sansbold';
+  src: url('./assets/fonts/firasans-bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'fira_sansmedium';
+  src: url('./assets/fonts/firasans-medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
