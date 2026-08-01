@@ -60,3 +60,7 @@ html {
   visibility: hidden;
   pointer-events: none;
 }
+
+li {
+  list-style: none;
+}
