@@ -23,10 +23,10 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           resumeData={resumeObject} 
         />
 
-        <EducationFields 
-          onChange={handleEntryFieldChange} 
-          resumeData={resumeObject.education} 
-          addField={addNewResumeData} 
+        <SkillsFields 
+          onChange={handleEntryFieldChange}
+          resumeData={resumeObject.skills}
+          addField={addNewResumeData}
           removeEntry={removeResumeEntry}
         />
 
@@ -37,10 +37,10 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           removeEntry={removeResumeEntry}
         />
 
-        <SkillsFields 
-          onChange={handleEntryFieldChange}
-          resumeData={resumeObject.skills}
-          addField={addNewResumeData}
+        <EducationFields 
+          onChange={handleEntryFieldChange} 
+          resumeData={resumeObject.education} 
+          addField={addNewResumeData} 
           removeEntry={removeResumeEntry}
         />
 
