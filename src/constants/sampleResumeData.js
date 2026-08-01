@@ -9,14 +9,20 @@ export const sampleResumeData = {
     {
       id: crypto.randomUUID(),
       [EDUCATION_KEYS.SCHOOL_NAME]: "Harvard University",
-      [EDUCATION_KEYS.DEGREE]: "B.Sc. Computer Science",
-      [EDUCATION_KEYS.DATE_RANGE]: "2020.09 - 2024.04",
+      [EDUCATION_KEYS.DEGREE]: "Ph.D Computer Science",
+      [EDUCATION_KEYS.DATE_RANGE]: "2026.09 - 2028.04",
     },
     {
       id: crypto.randomUUID(),
       [EDUCATION_KEYS.SCHOOL_NAME]: "Yale University",
       [EDUCATION_KEYS.DEGREE]: "Masters Computer Science",
       [EDUCATION_KEYS.DATE_RANGE]: "2024.09 - 2026.04",
+    },
+    {
+      id: crypto.randomUUID(),
+      [EDUCATION_KEYS.SCHOOL_NAME]: "Harvard University",
+      [EDUCATION_KEYS.DEGREE]: "B.Sc. Computer Science",
+      [EDUCATION_KEYS.DATE_RANGE]: "2020.09 - 2024.04",
     },
   ],
   [RESUME_KEYS.WORK_EXPERIENCE]: [
@@ -25,7 +31,9 @@ export const sampleResumeData = {
       [WORK_EXPERIENCE_KEYS.COMPANY_NAME]: "NVIDIA Corporation",
       [WORK_EXPERIENCE_KEYS.POSITION]: "Senior Front-End Engineer",
       [WORK_EXPERIENCE_KEYS.DATE_RANGE]: "2020.09 - ongoing",
-      [WORK_EXPERIENCE_KEYS.JOB_DESCRIPTION]: "Took a hands-on approach with the projects handed to me, particularly with the shader algorithms.",
+      [WORK_EXPERIENCE_KEYS.JOB_DESCRIPTION]: `I took ownership of complex rendering pipelines, writing custom GLSL shader algorithms from scratch. 
+      
+      Instead of relying on off-the-shelf effects, I engineered bespoke lighting, refraction, and particle shaders while actively profiling frame rates to guarantee a smooth 60 FPS across both desktop and mobile hardware.`,
     },
     {
       id: crypto.randomUUID(),
