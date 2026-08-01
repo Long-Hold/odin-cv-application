@@ -16,7 +16,8 @@
 .resumeTemplate {
   font-size: 12pt;
   line-height: 1.15;
-  background-color: white;
+  background-color: #FAF6F0;
+  color: #33302C;
   width: 8.5in;
   min-height: 11in;
   zoom: var(--fit-scale);
