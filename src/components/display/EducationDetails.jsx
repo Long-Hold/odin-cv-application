@@ -1,7 +1,7 @@
 export function EducationDetails({educationArray}) {
   return (
     <section className="educationDetails">
-      <h2>Education</h2>
+      <h2>EDUCATION</h2>
       {educationArray.map(entry =>
         <EducationEntry key={entry.id} {...entry} />
       )}
