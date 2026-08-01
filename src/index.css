@@ -71,3 +71,21 @@ html {
 li {
   list-style: none;
 }
+
+@media print {
+  .resumeFormSection {
+    display: none !important;
+  }
+
+  .resumeContainer {
+    padding: none !important;
+  }
+  .resumeTemplate {
+    box-shadow: none !important;
+    zoom: 1 !important;
+    margin: 0 !important;
+  }
+  @page {
+    margin: 0 !important;
+  }
+}
