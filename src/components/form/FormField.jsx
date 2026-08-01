@@ -26,7 +26,7 @@ export function FormField({
   const fieldId = (entryId !== null) ? `${name}_${entryId}` : name;
   return (
     <>
-      <div>
+      <div className="labelInputGroup">
         <label htmlFor={fieldId}>{label}</label>
         {multiLine ? (
           <textarea
