@@ -13,10 +13,8 @@ export function SkillsDetails({skillsArray}) {
 
 function SkillEntry({skill}) {
   return (
-    <li>
-      <div className="resumeEntry skillEntry">
-        <p>{skill}</p>
-      </div>
+    <li className="resumeEntry skillEntry">
+      <p>{skill}</p>
     </li>
   )
 }
