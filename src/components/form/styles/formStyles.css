@@ -3,3 +3,12 @@
     display: none;
   }
 }
+
+.resumeFormSection {
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: auto;
+  .resumeDetailsForm {
+    max-height: 100%;
+  }
+}
