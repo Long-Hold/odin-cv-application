@@ -27,10 +27,13 @@
   /* Grid Styling */
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: repeat(4, max-content);
   grid-template-areas: 
     "PersonalDetails WorkExperienceDetails"
+    "SkillsDetails WorkExperienceDetails"
+    "SkillsDetails EducationDetails"
     "SkillsDetails EducationDetails";
+  row-gap: 1.5em;
 
   .personalDetails {
     grid-area: PersonalDetails;
@@ -52,7 +55,11 @@
 .educationDetails {
   display: flex;
   flex-flow: column nowrap;
-  gap: 1.2rem;
+  gap: 1em;
+
+  ul, ol {
+    
+  }
 }
 
 .resumeEntry  {
