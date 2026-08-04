@@ -12,3 +12,8 @@
     max-height: 100%;
   }
 }
+
+.labelInputGroup {
+  display: flex;
+  flex-flow: column nowrap;
+}
