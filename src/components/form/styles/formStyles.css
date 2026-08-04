@@ -13,7 +13,36 @@
   }
 }
 
-.labelInputGroup {
+.resumeDetailsForm,
+.labelInputGroup,
+fieldset,
+fieldset ol,
+fieldset ul {
   display: flex;
   flex-flow: column nowrap;
+}
+
+.resumeDetailsForm {
+  gap: 2.5rem;
+
+  /* 
+  Each li child of the ol contain fieldsets with grouped inputs for
+  work / education fields. These are dense fields that can be added often,
+  and therefore need greater spacing between eachother.
+  */
+  fieldset ol {
+    gap: 2rem;
+  }
+
+  /*
+    .personalFields is only 4 standalone entries,
+    and the ul is for the skills inputs.
+
+    Because they're not contained in subsequent fieldsets and the data is minimal,
+    they require less spacing so it doesn't look too akward
+  */
+  fieldset,
+  fieldset ul {
+    gap: 1.25rem;
+  }
 }
