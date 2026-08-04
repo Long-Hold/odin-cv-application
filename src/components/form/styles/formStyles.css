@@ -7,9 +7,11 @@
 .resumeFormSection {
   max-height: 100vh;
   max-height: 100dvh;
+  width: min(100vw, 25rem);
   overflow-y: auto;
   .resumeDetailsForm {
     max-height: 100%;
+    width: 100%;
   }
 }
 
