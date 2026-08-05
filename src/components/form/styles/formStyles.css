@@ -4,6 +4,19 @@
   }
 }
 
+/* 
+Warm color scheme:
+  text: #33302C
+  outer fieldset: #FAF6F0
+  inner fieldset: #E3DAC9
+*/
+
+fieldset {
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+}
+
 .resumeFormSection {
   max-height: 100vh;
   max-height: 100dvh;
@@ -26,6 +39,7 @@ fieldset ul {
 
 .resumeDetailsForm {
   gap: 2.5rem;
+  color: var(--charcoal-gray);
 
   /* 
   Each li child of the ol contain fieldsets with grouped inputs for
@@ -47,4 +61,15 @@ fieldset ul {
   fieldset ul {
     gap: 1.25rem;
   }
+}
+
+.personalFields,
+.skillsFields,
+.workExperienceFields,
+.educationFields {
+  background-color: var(--off-white);
+}
+
+details fieldset {
+  background-color: #E3DAC9;
 }

@@ -11,8 +11,8 @@
 .resumeTemplate {
   font-size: 12pt;
   line-height: 1.15;
-  background-color: #FAF6F0;
-  color: #33302C;
+  background-color: var(--off-white);
+  color: var(--charcoal-gray);
 
   /* using max-width is important, as it allows the form to grow properly */
   max-width: 8.5in;
