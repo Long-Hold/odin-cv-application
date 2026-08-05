@@ -23,7 +23,6 @@ fieldset {
   width: min(100vw, 25rem);
   overflow-y: auto;
   .resumeDetailsForm {
-    max-height: 100%;
     width: 100%;
   }
 }
@@ -68,8 +67,17 @@ fieldset ul {
 .workExperienceFields,
 .educationFields {
   background-color: var(--off-white);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
 }
 
 details fieldset {
   background-color: #E3DAC9;
+}
+
+fieldset legend {
+  color: var(--off-white);
+  background-color: var(--charcoal-gray);
+  padding: 0.4rem 0.2rem;
+  border-radius: 5px;
+  text-transform: uppercase;
 }
