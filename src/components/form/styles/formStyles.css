@@ -81,3 +81,26 @@ fieldset legend {
   border-radius: 5px;
   text-transform: uppercase;
 }
+
+summary {
+  /* Removes the triangle */
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &::after {
+    content: "›";
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+}
+
+details[open] summary::after {
+  transform: rotate(90deg); 
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
