@@ -80,6 +80,7 @@ fieldset legend {
   padding: 0.4rem 0.2rem;
   border-radius: 5px;
   text-transform: uppercase;
+  width: fit-content;
 }
 
 summary {
