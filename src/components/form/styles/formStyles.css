@@ -88,7 +88,7 @@ summary {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5em;
   cursor: pointer;
 
   &::after {
@@ -168,5 +168,16 @@ the button via a div.*/
   }
   .removeEntryBtn {
     position: static;
+  }
+}
+
+.workExperienceFields, .educationFields {
+  li {
+    position: relative;
+  }
+  .removeEntryBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
