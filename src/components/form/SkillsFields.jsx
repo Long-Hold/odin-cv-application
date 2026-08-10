@@ -27,7 +27,7 @@ function SkillEntry({entry, onChange, removeEntry}) {
         onChange={(event) => onChange(RESUME_KEYS.SKILLS, entry.id, SKILLS_KEYS.SKILL, event.currentTarget.value)}
         entryId={entry.id}
       />
-      <button type="button" onClick={() => removeEntry(RESUME_KEYS.SKILLS, entry.id)}>Remove Entry</button>
+      <button type="button" className="removeEntryBtn" onClick={() => removeEntry(RESUME_KEYS.SKILLS, entry.id)}>Remove Entry</button>
     </li>
   )
 }

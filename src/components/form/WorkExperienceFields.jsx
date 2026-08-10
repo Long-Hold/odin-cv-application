@@ -60,7 +60,7 @@ function WorkExperienceEntry({entry, onChange, removeEntry}) {
           />
         ))}
       />
-      <button type="button" onClick={() => removeEntry(RESUME_KEYS.WORK_EXPERIENCE, entry.id)}>Remove Entry</button>
+      <button type="button" className="removeEntryBtn" onClick={() => removeEntry(RESUME_KEYS.WORK_EXPERIENCE, entry.id)}>Remove Entry</button>
     </li>
   )
 }
