@@ -105,3 +105,39 @@ details[open] summary::after {
 summary::-webkit-details-marker {
   display: none;
 }
+
+
+/* input, label, button styling */
+input, button {
+  height: 2.5em;
+}
+
+input {
+  padding-left: 0.3em;
+}
+
+textarea {
+  field-sizing: content;
+  resize: vertical;
+  padding: 0.5em;
+}
+
+label, button {
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+
+input, textarea, button {
+  border-radius: 8px;
+  border: 1px solid var(--charcoal-gray);
+  font-family: inherit;
+}
+
+input, textarea {
+  outline: 2px solid transparent;
+  font-size: 1rem;
+  transition: outline-color 0.2s ease-out;
+  &:focus-visible {
+    outline-color: #2F5233;
+  }
+}
