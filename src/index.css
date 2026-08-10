@@ -43,6 +43,13 @@ body {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
 /* Hides certain elements so they do not take up space,
 but still allows screen readers to access them */
 .visuallyHidden {
