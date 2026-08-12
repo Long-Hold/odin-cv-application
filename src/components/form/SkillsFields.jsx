@@ -1,5 +1,6 @@
 import { FormField } from "./FormField";
 import { RESUME_KEYS, SKILLS_KEYS } from "../../constants/resumeKeys";
+import { RemoveEntryButton } from "./RemoveEntryButton";
 
 export function SkillsFields({onChange, resumeData, addField, removeEntry}) {
   return (
@@ -27,7 +28,13 @@ function SkillEntry({entry, onChange, removeEntry}) {
         onChange={(event) => onChange(RESUME_KEYS.SKILLS, entry.id, SKILLS_KEYS.SKILL, event.currentTarget.value)}
         entryId={entry.id}
       />
-      <button type="button" className="removeEntryBtn" onClick={() => removeEntry(RESUME_KEYS.SKILLS, entry.id)}>{'\u00D7'}</button>
+      
+      <RemoveEntryButton 
+        fieldType={RESUME_KEYS.SKILLS}
+        entryId={entry.id}
+        removeEntry={removeEntry}
+        label={`Remove ${entry[SKILLS_KEYS.SKILL] || "skill"} entry`}
+      />
     </li>
   )
 }

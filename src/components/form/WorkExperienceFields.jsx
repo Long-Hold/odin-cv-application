@@ -1,6 +1,7 @@
 import { RESUME_KEYS, WORK_EXPERIENCE_KEYS } from "../../constants/resumeKeys"
 import { FormField } from "./FormField"
 import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry"
+import { RemoveEntryButton } from "./RemoveEntryButton"
 
 const workExperienceFieldsConfig = [
   {
@@ -60,7 +61,13 @@ function WorkExperienceEntry({entry, onChange, removeEntry}) {
           />
         ))}
       />
-      <button type="button" className="removeEntryBtn" onClick={() => removeEntry(RESUME_KEYS.WORK_EXPERIENCE, entry.id)}>Remove Entry</button>
+      
+      <RemoveEntryButton 
+        fieldType={RESUME_KEYS.WORK_EXPERIENCE}
+        entryId={entry.id}
+        removeEntry={removeEntry}
+        label={`Remove ${entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] || "work experience"} entry`}
+      />
     </li>
   )
 }

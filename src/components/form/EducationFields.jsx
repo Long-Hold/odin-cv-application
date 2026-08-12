@@ -1,6 +1,7 @@
 import { FormField } from "./FormField";
 import { EDUCATION_KEYS, RESUME_KEYS } from "../../constants/resumeKeys";
 import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry";
+import { RemoveEntryButton } from "./RemoveEntryButton";
 
 const educationFieldsConfig = [
   {
@@ -54,7 +55,13 @@ function EducationEntry({entry, onChange, removeEntry}) {
           />
         ))}
       />
-      <button type="button" className="removeEntryBtn" onClick={() => removeEntry(RESUME_KEYS.EDUCATION, entry.id)}>Remove Entry</button>
+      
+      <RemoveEntryButton 
+        fieldType={RESUME_KEYS.EDUCATION}
+        entryId={entry.id}
+        removeEntry={removeEntry}
+        label={`Remove ${entry[EDUCATION_KEYS.SCHOOL_NAME] || "education"} entry`}
+      />
     </li>
   )
 }
