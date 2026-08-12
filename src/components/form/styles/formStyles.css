@@ -184,13 +184,24 @@ Needs to be tested in Firefox & Safari */
   }
 }
 
-.workExperienceFields, .educationFields {
-  li {
-    position: relative;
+.removeEntryBtn {
+  cursor:pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 2.5em;
+  background-color: #DC2626;
+  color: #ffffff;
+  border: none;
+
+  transition: 0.2s background-color ease-out;
+  &:hover, &:focus-visible {
+    background-color: #7a1212;
   }
-  .removeEntryBtn {
-    position: absolute;
-    top: 0;
-    right: 0;
+  &:focus-visible {
+    outline: 3px solid #0361e4af; /* High-visibility blue */
+    outline-offset: 2px;        /* Spacing away from the button */
+    box-shadow: 0 0 0 2px #fff; /* White buffer ring underneath */
   }
 }
