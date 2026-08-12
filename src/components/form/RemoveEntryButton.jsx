@@ -21,7 +21,7 @@ export function RemoveEntryButton({fieldType, entryId, removeEntry, label}) {
       aria-label={label}
       onClick={() => removeEntry(fieldType, entryId)}
     >
-      {'\u00D7'}
+      delete
     </button>
   )
 }
