@@ -5,10 +5,13 @@
  * This component encapsulates the entry in a fieldset with a hidden legend via a css accessibility class.
  * This is so screenreaders can still read the legend, but wont clutter the visual display
  */
-export function CollapsibleFieldEntry({detailsClass, summaryText, legendText, entryComponent}) {
+export function CollapsibleFieldEntry({detailsClass, summaryText, legendText, entryComponent, deleteButton = null}) {
   return (
     <details className={detailsClass} open>
-      <summary>{summaryText}</summary>
+      <summary>
+        {summaryText}
+        {deleteButton}
+      </summary>
       <fieldset>
         <legend className="visuallyHidden">{legendText}</legend>
         {entryComponent}
