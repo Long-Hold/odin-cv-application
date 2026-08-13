@@ -196,6 +196,16 @@ Needs to be tested in Firefox & Safari */
   color: #ffffff;
 
   &:hover, &:focus-visible {
-    background-color: #7a1212;
+    background-color: color-mix(in srgb, #DC2626 53%, black);
+  }
+}
+
+.addEntryBtn {
+  width: 100%;
+  background-color: var(--charcoal-gray);
+  color: #ffffff;
+
+  &:hover, &:focus-visible {
+    background-color: color-mix(in srgb, var(--charcoal-gray) 85%, white);
   }
 }
