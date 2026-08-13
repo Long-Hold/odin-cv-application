@@ -158,12 +158,6 @@ input, textarea {
   width: 100%;
 }
 
-/* button styling */
-button {
-  padding: 0.2em 0.4em;
-  background-color: rgb(227, 226, 226);
-}
-
 /* Positions the 'Remove Entry' buttons inline with the
 input elements.
 
@@ -197,22 +191,11 @@ Needs to be tested in Firefox & Safari */
 }
 
 .removeEntryBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: fit-content;
-  height: 2.5em;
   background-color: #DC2626;
   color: #ffffff;
-  border: none;
 
-  transition: 0.2s background-color ease-out;
   &:hover, &:focus-visible {
     background-color: #7a1212;
-  }
-  &:focus-visible {
-    outline: 3px solid #0361e4af; /* High-visibility blue */
-    outline-offset: 2px;        /* Spacing away from the button */
-    box-shadow: 0 0 0 2px #fff; /* White buffer ring underneath */
   }
 }
