@@ -54,13 +54,14 @@ function EducationEntry({entry, onChange, removeEntry}) {
             {...field}
           />
         ))}
-      />
-      
-      <RemoveEntryButton 
-        fieldType={RESUME_KEYS.EDUCATION}
-        entryId={entry.id}
-        removeEntry={removeEntry}
-        label={`Remove ${entry[EDUCATION_KEYS.SCHOOL_NAME] || "education"} entry`}
+        deleteButton={
+        <RemoveEntryButton 
+          fieldType={RESUME_KEYS.EDUCATION}
+          entryId={entry.id}
+          removeEntry={removeEntry}
+          label={`Remove ${entry[EDUCATION_KEYS.SCHOOL_NAME] || "education"} entry`}
+        />
+        }
       />
     </li>
   )

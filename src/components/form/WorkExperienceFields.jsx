@@ -60,13 +60,14 @@ function WorkExperienceEntry({entry, onChange, removeEntry}) {
             {...field}
           />
         ))}
-      />
-      
-      <RemoveEntryButton 
-        fieldType={RESUME_KEYS.WORK_EXPERIENCE}
-        entryId={entry.id}
-        removeEntry={removeEntry}
-        label={`Remove ${entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] || "work experience"} entry`}
+        deleteButton={
+          <RemoveEntryButton 
+            fieldType={RESUME_KEYS.WORK_EXPERIENCE}
+            entryId={entry.id}
+            removeEntry={removeEntry}
+            label={`Remove ${entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] || "work experience"} entry`}
+          />
+        }
       />
     </li>
   )
