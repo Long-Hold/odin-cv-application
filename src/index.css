@@ -95,6 +95,11 @@ li {
   list-style: none;
 }
 
+/* Prevents the user from breaking the horizontal layout with massive strings */
+h1, h2, h3, p, summary, textarea {
+  overflow-wrap: anywhere;
+}
+
 @media print {
   .resumeFormSection {
     display: none !important;
