@@ -50,6 +50,10 @@ button,
   -webkit-appearance: button;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Hides certain elements so they do not take up space,
 but still allows screen readers to access them */
 .visuallyHidden {
