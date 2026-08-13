@@ -27,6 +27,7 @@ fieldset {
   }
 }
 
+summary,
 .resumeDetailsForm,
 .labelInputGroup,
 fieldset,
@@ -83,18 +84,29 @@ fieldset legend {
   width: fit-content;
 }
 
+/* Details dropdown styling for Work and Education fields */
+details {
+  gap: 0.5em;
+}
+
 summary {
   /* Removes the triangle */
   list-style: none;
-  display: flex;
+  display: grid;
   align-items: center;
-  gap: 0.5em;
+  grid-template-columns:1fr auto auto;
+  grid-template-areas: "label icon button";
+  gap: 1em;
   cursor: pointer;
 
   &::after {
     content: "›";
     font-size: 1.5rem;
     transition: transform 0.2s ease;
+    grid-area: icon;
+  }
+  &.removeEntryBtn {
+    grid-area: button;
   }
 }
 
