@@ -13,6 +13,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
   return (
     <>
       <header className="formVisibilityControls">
+        <p>MY RESUME</p>
         <button
           type="button"
           className="toggleHideFormBtn"
