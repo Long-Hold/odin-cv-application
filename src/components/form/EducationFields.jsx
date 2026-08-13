@@ -2,6 +2,7 @@ import { FormField } from "./FormField";
 import { EDUCATION_KEYS, RESUME_KEYS } from "../../constants/resumeKeys";
 import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry";
 import { RemoveEntryButton } from "./RemoveEntryButton";
+import { AddEntryButton } from "./AddEntryButton";
 
 const educationFieldsConfig = [
   {
@@ -32,7 +33,11 @@ export function EducationFields({onChange, resumeData, addField, removeEntry}) {
         <ol>
           {resumeData.map(entry => <EducationEntry key={entry.id} entry={entry} onChange={onChange} removeEntry={removeEntry} /> )}
         </ol>
-        <button type="button" onClick={() => addField(RESUME_KEYS.EDUCATION)}>Add Education Field</button>
+        <AddEntryButton 
+          addField={addField}
+          fieldKey={RESUME_KEYS.EDUCATION}
+          text={"Add Education Field"}
+        />
       </fieldset>
     </>
   )

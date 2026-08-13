@@ -2,6 +2,7 @@ import { RESUME_KEYS, WORK_EXPERIENCE_KEYS } from "../../constants/resumeKeys"
 import { FormField } from "./FormField"
 import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry"
 import { RemoveEntryButton } from "./RemoveEntryButton"
+import { AddEntryButton } from "./AddEntryButton"
 
 const workExperienceFieldsConfig = [
   {
@@ -38,7 +39,11 @@ export function WorkExperienceFields({onChange, resumeData, addField, removeEntr
         <ol>
           {resumeData.map(entry => <WorkExperienceEntry key={entry.id} entry={entry} onChange={onChange} removeEntry={removeEntry} />)}
         </ol>
-        <button type="button" onClick={() => addField(RESUME_KEYS.WORK_EXPERIENCE)}>Add Work Experience</button>
+        <AddEntryButton
+          addField={addField}
+          fieldKey={RESUME_KEYS.WORK_EXPERIENCE}
+          text={"Add Work Experience"}
+        />
       </fieldset>
     </>
   )

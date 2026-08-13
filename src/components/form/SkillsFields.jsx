@@ -1,6 +1,7 @@
 import { FormField } from "./FormField";
 import { RESUME_KEYS, SKILLS_KEYS } from "../../constants/resumeKeys";
 import { RemoveEntryButton } from "./RemoveEntryButton";
+import { AddEntryButton } from "./AddEntryButton";
 
 export function SkillsFields({onChange, resumeData, addField, removeEntry}) {
   return (
@@ -10,7 +11,11 @@ export function SkillsFields({onChange, resumeData, addField, removeEntry}) {
         <ul>
           {resumeData.map(entry => <SkillEntry key={entry.id} entry={entry} onChange={onChange} removeEntry={removeEntry} /> )}
         </ul>
-        <button type="button" onClick={() => addField(RESUME_KEYS.SKILLS)}>Add Skill</button>
+        <AddEntryButton 
+          addField={addField}
+          fieldKey={RESUME_KEYS.SKILLS}
+          text={"Add Skill"}
+        />
       </fieldset>
     </>
   )
