@@ -34,6 +34,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --off-white: #FAF6F0;
+  --dark-beige: #C9C2B3;
   --charcoal-gray: #33302C;
   --header-height: 3rem;
 }
@@ -54,7 +55,7 @@ button,
 button {
   cursor: pointer;
   border: none;
-  height: 2.5em;
+  height: 2.5rem;
   padding: 0.2em 0.4em;
   transition: 0.2s background-color ease-out;
   &:focus-visible {
