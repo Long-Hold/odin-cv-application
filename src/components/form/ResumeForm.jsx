@@ -4,6 +4,9 @@ import { WorkExperienceFields } from "./WorkExperienceFields";
 import { SkillsFields } from "./SkillsFields";
 import "./styles/formStyles.css"
 import { useState } from "react";
+import { Icon } from "@mdi/react";
+import { mdiPencilOutline } from '@mdi/js';
+import { mdiEyeOutline } from '@mdi/js';
 
 export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
   const [isFormOpen, setFormState] = useState(true);
@@ -19,7 +22,10 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           className="toggleHideFormBtn"
           onClick={() => toggleForm()}
           aria-expanded={isFormOpen}
-        >{isFormOpen ? "view resume" : "edit resume"}</button>
+        >
+          <Icon path={isFormOpen ? mdiEyeOutline : mdiPencilOutline} size={1} />
+          {isFormOpen ? "view resume" : "edit resume"}
+        </button>
       </header>
       <section className={`resumeFormSection${isFormOpen ? "" : " hide"}`}>
         <form 
