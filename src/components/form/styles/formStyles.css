@@ -2,6 +2,9 @@
   .formVisibilityControls {
     display: none !important;
   }
+  .resumeFormSection {
+    background-color: transparent !important;
+  }
 }
 
 .formVisibilityControls {
@@ -54,6 +57,7 @@ fieldset {
   max-height: 100dvh;
   width: min(100vw, 25rem);
   overflow-y: auto;
+  background-color: var(--dark-beige);
   .resumeDetailsForm {
     width: 100%;
   }
@@ -173,7 +177,7 @@ summary::-webkit-details-marker {
 
 /* input, label, button styling */
 input, button {
-  height: 2.5em;
+  height: 2.5rem;
 }
 
 input {
@@ -238,7 +242,7 @@ Needs to be tested in Firefox & Safari */
 .skillsFields li {
   display: flex;
   flex-flow: row nowrap;
-  align-items: last baseline;
+  align-items: flex-end;
   gap: 0.5em;
 }
 
