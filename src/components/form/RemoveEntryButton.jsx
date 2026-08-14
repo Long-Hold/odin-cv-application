@@ -1,3 +1,6 @@
+import {Icon} from '@mdi/react';
+import { mdiDelete } from '@mdi/js';
+
 /**
  * Renders a button that removes a specific entry from a resume field array
  * (education, work experience, or skills), matched by entry id.
@@ -21,7 +24,7 @@ export function RemoveEntryButton({fieldType, entryId, removeEntry, label}) {
       aria-label={label}
       onClick={() => removeEntry(fieldType, entryId)}
     >
-      delete
+      <Icon path={mdiDelete} size={1} />
     </button>
   )
 }
