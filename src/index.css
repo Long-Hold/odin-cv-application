@@ -101,6 +101,9 @@ h1, h2, h3, p, summary, textarea {
 }
 
 @media print {
+  .formVisibilityControls {
+    display: none !important;
+  }
   .resumeFormSection {
     display: none !important;
   }
