@@ -20,9 +20,8 @@ fieldset ul,
 
 .sidebar {
   width: var(--sidebar-width);
-  min-height: 100vh;
-  min-height: 100dvh;
-  overflow: auto;
+  height: 100vh;
+  height: 100dvh;
   .formVisibilityControls, .resumeFormSection {
     width: 100%;
   }
@@ -74,7 +73,7 @@ fieldset {
 
 .resumeFormSection {
   max-height: 100%;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   background-color: var(--dark-beige);
   .resumeDetailsForm {
     width: 100%;
