@@ -37,6 +37,7 @@
   --dark-beige: #C9C2B3;
   --charcoal-gray: #33302C;
   --header-height: 3rem;
+  --sidebar-width: min(100vw, 25rem);
 }
 
 body {
