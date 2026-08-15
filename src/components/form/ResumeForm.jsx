@@ -6,7 +6,7 @@ import "./styles/formStyles.css"
 import { useState } from "react";
 import { Icon } from "@mdi/react";
 import { mdiPencilOutline } from '@mdi/js';
-import { mdiEyeOutline } from '@mdi/js';
+import { mdiEyeOutline, mdiExportVariant } from '@mdi/js';
 
 export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
   const [isFormOpen, setFormState] = useState(true);
@@ -14,12 +14,16 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
     setFormState((prevState) => !prevState);
   };
   return (
-    <>
+    <div className="sidebar">
       <header className="formVisibilityControls">
-        <p>MY RESUME</p>
         <button
           type="button"
-          className="toggleHideFormBtn"
+          className="headerBtn exportPrint"
+          onClick={() => window.print()}
+        ><Icon path={mdiExportVariant} size={1} />print / export PDF</button>
+        <button
+          type="button"
+          className="headerBtn toggleHideFormBtn"
           onClick={() => toggleForm()}
           aria-expanded={isFormOpen}
         >
@@ -60,6 +64,6 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           />
         </form>
       </section>
-    </>
+    </div>
   )
 }
