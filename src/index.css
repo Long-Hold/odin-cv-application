@@ -102,22 +102,30 @@ h1, h2, h3, p, summary, textarea {
 }
 
 @media print {
-  .formVisibilityControls {
-    display: none !important;
+  html {
+    overflow: visible !important;
   }
-  .resumeFormSection {
+
+  .sidebar {
     display: none !important;
   }
 
+  .resumeContainer, .resumeTemplate {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   .resumeContainer {
-    padding: none !important;
+    overflow: visible !important;
+    max-height: none !important;
+    min-height: fit-content !important;
   }
   .resumeTemplate {
     box-shadow: none !important;
     zoom: 1 !important;
-    margin: 0 !important;
+    min-height: 0 !important;
   }
   @page {
-    margin: 0 !important;
+    margin: 0.75in !important;
   }
 }
