@@ -81,7 +81,14 @@ but still allows screen readers to access them */
 }
 
 html {
-  background-color: #C9C2B3;
+  background-color: var(--dark-beige);
+  scrollbar-color: var(--dark-beige) var(--charcoal-gray);
+  &::-webkit-scrollbar-track {
+    background-color: var(--charcoal-gray);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dark-beige);
+  }
 }
 
 #root {
@@ -99,6 +106,12 @@ li {
 /* Prevents the user from breaking the horizontal layout with massive strings */
 h1, h2, h3, p, summary, textarea {
   overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @media print {
