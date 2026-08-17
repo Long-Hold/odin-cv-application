@@ -5,6 +5,9 @@
   .formVisibilityControls {
     position: static !important;
   }
+  .sidebar {
+    width: var(--sidebar-width) !important;
+  }
 }
 
 details,
@@ -19,7 +22,7 @@ fieldset ul,
 }
 
 .sidebar {
-  width: var(--sidebar-width);
+  width: 100vw;
   height: 100vh;
   height: 100dvh;
   .formVisibilityControls, .resumeFormSection {
