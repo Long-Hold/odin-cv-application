@@ -36,7 +36,6 @@ fieldset ul,
   background-color: var(--charcoal-gray);
   padding: 0.4rem;
   min-height: var(--header-height);
-  box-shadow: 0 2px 6px rgba(0, 0, 0);
 
   p {
     color: var(--off-white);
