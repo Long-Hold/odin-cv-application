@@ -119,11 +119,15 @@ h1, h2, h3, p, summary, textarea {
     overflow: visible !important;
   }
 
+  body {
+    place-content: start !important;
+  }
+
   .sidebar {
     display: none !important;
   }
 
-  .resumeContainer, .resumeTemplate {
+  .resumeContainer, .resumeTemplate, body {
     padding: 0 !important;
     margin: 0 !important;
   }
