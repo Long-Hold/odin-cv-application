@@ -35,13 +35,15 @@
   }
   .detailColumn:first-child {
     flex: 1;
+    min-width: 0;
   }
   .detailColumn:nth-child(2) {
     flex: 2;
   }
 
   h1 {
-    font-size: 22pt;
+    font-size: var(--name-font-size, 22pt);
+    white-space: nowrap;
   }
   h2 {
     font-size: 18pt;
