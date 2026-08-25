@@ -23,28 +23,21 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.355);
   padding: 0.75in;
 
-  /* Grid Styling */
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(4, max-content);
-  grid-template-areas: 
-    "PersonalDetails WorkExperienceDetails"
-    "SkillsDetails WorkExperienceDetails"
-    "SkillsDetails EducationDetails"
-    "SkillsDetails EducationDetails";
+  display: flex;
+  flex-flow: row nowrap;
+
   row-gap: 1.5em;
 
-  .personalDetails {
-    grid-area: PersonalDetails;
+  .detailColumn {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.5em;
   }
-  .workExperienceDetails {
-    grid-area: WorkExperienceDetails;
+  .detailColumn:first-child {
+    flex: 1;
   }
-  .skillsDetails {
-    grid-area: SkillsDetails;
-  }
-  .educationDetails {
-    grid-area: EducationDetails;
+  .detailColumn:nth-child(2) {
+    flex: 2;
   }
 
   h1 {
