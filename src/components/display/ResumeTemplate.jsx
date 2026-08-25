@@ -12,24 +12,26 @@ export function ResumeTemplate({resumeObject}) {
   return (
     <div ref={resumeContainerRef} className="resumeContainer">
       <section className="resumeTemplate">
-        <PersonalDetails 
-          name={resumeObject.name}
-          email={resumeObject.email}
-          number={resumeObject.number}
-          summary={resumeObject.summary}
-        />
+        <div className="detailColumn">
+          <PersonalDetails 
+            name={resumeObject.name}
+            email={resumeObject.email}
+            number={resumeObject.number}
+            summary={resumeObject.summary}
+          />
+          <SkillsDetails 
+            skillsArray={resumeObject.skills}
+          />
+        </div>
 
-        <WorkExperienceDetails 
-          workExperienceArray={resumeObject.workExperience}
-        />
-
-        <SkillsDetails 
-          skillsArray={resumeObject.skills}
-        />
-
-        <EducationDetails 
-          educationArray={resumeObject.education}
-        />
+        <div className="detailColumn">
+          <WorkExperienceDetails 
+            workExperienceArray={resumeObject.workExperience}
+          />
+          <EducationDetails 
+            educationArray={resumeObject.education}
+          />
+        </div>
       </section>
     </div>
   )
