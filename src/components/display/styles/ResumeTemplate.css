@@ -26,7 +26,7 @@
   display: flex;
   flex-flow: row nowrap;
 
-  row-gap: 1.5em;
+  gap: 1.5em;
 
   .detailColumn {
     display: flex;
