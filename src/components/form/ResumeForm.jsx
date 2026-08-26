@@ -7,6 +7,8 @@ import { useState } from "react";
 import { Icon } from "@mdi/react";
 import { mdiPencilOutline } from '@mdi/js';
 import { mdiEyeOutline, mdiExportVariant } from '@mdi/js';
+import { PDFViewer } from "@react-pdf/renderer";
+import { ResumePdfDocument } from "../pdf/ResumePdfDocument";
 
 export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
   const [isFormOpen, setFormState] = useState(true);
@@ -64,6 +66,15 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           />
         </form>
       </section>
+      <dialog open>
+        <PDFViewer style={{
+          position: 'absolute',
+          width: '100vw',
+          height: '100vh', 
+          height: '100dvh'}}>
+          <ResumePdfDocument resume={resumeObject}/>
+        </PDFViewer>
+      </dialog>
     </div>
   )
 }
