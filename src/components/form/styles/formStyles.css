@@ -28,6 +28,11 @@ fieldset ul,
   .formVisibilityControls, .resumeFormSection {
     width: 100%;
   }
+  /* This gets the .sidebar element out of the way of the main content
+  so the user can properly scroll */
+  &:has(.resumeFormSection.hide) {
+    height: fit-content;
+  }
 }
 
 .formVisibilityControls {
