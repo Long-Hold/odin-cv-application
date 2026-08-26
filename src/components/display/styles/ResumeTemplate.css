@@ -9,6 +9,13 @@
   overflow: auto;
 }
 
+@media screen and (width <= 48rem) {
+  .resumeContainer {
+    margin-top: var(--header-height);
+    max-height: calc(100dvh - var(--header-height));
+  }
+}
+
 .resumeTemplate {
   font-size: 12pt;
   line-height: 1.15;
