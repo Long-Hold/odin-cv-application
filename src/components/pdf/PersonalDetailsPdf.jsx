@@ -1,24 +1,18 @@
-import { View, Text, StyleSheet } from "@react-pdf/renderer";
+import { View, Text } from "@react-pdf/renderer";
 import { GLOBAL_STYLES } from "./globalStyles/globalStyles";
+import { measureFitFontSize } from "../../utils/measureFitFontSize";
 
-const styles = StyleSheet.create({
-  name: {
-    fontSize: '22pt',
-    whiteSpace: 'nowrap',
-
-    /**
-     * I explicitly set a lineHeight of 1 because the name has a larger font size, which
-     * expands into the flex gap making it appear like the gap between Name and the next element is smaller
-     * than the rest of their siblings.
-     */
-    lineHeight: 1,
-  }
-})
+// Column width in points, from the fixed PDF page layout (not measured live).
+const NAME_COLUMN_WIDTH_PT = 172; // TODO: derive from actual page/column math
 
 export function PersonalDetailsPdf({name, email, number, summary}) {
+  const fittedNameSize = measureFitFontSize(name, NAME_COLUMN_WIDTH_PT, 22);
+
   return (
     <View style={GLOBAL_STYLES.detailSection}>
-      <Text style={styles.name}>{name}</Text>
+      <Text style={{ fontSize: `${fittedNameSize}pt`, whiteSpace: 'nowrap', lineHeight: 1 }}>
+        {name}
+      </Text>
       <Text>{email}</Text>
       <Text>{number}</Text>
       <Text>{summary}</Text>
