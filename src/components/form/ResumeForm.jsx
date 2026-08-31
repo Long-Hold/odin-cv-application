@@ -78,6 +78,13 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
         </form>
       </section>
       <dialog ref={dialogRef} closedby="any">
+        <header>
+          <button
+            type="button"
+            className="headerBtn closeModalBtn"
+            onClick={toggleModal}
+          ><Icon path={mdiCloseBoxOutline} size={1} />close preview</button>
+        </header>
         <PDFViewer style={{
           position: 'absolute',
           width: '100vw',
@@ -85,11 +92,6 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           height: '100dvh'}}>
           <ResumePdfDocument resume={resumeObject}/>
         </PDFViewer>
-        <button
-          type="button"
-          className="headerBtn closeModalBtn"
-          onClick={toggleModal}
-        ><Icon path={mdiCloseBoxOutline} size={1} /></button>
       </dialog>
     </div>
   )
