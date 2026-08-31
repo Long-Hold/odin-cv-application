@@ -1,6 +1,16 @@
 import { Page, Text, View, Document, StyleSheet, Font } from "@react-pdf/renderer";
 import { PersonalDetailsPdf } from "./PersonalDetailsPdf";
 import { SkillsDetailsPdf } from "./SkillsDetailsPdf";
+import { WorkExperiencePdf } from "./WorkExperiencePdf";
+import FiraSansRegular from "../../assets/fonts/FiraSans-Regular.ttf";
+
+// Prevents hyphening words that break
+Font.registerHyphenationCallback((word) => [word]);
+
+Font.register({
+  family: "fira_sansregular",
+  src: FiraSansRegular
+});
 
 const styles = StyleSheet.create({
   page: {
@@ -10,6 +20,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'nowrap',
     gap: '24px',
+    fontFamily: "fira_sansregular",
+    textOverflow: 'none',
   },
   detailColumn: {
     flexDirection: 'column',
@@ -34,8 +46,8 @@ export function ResumePdfDocument({resume}) {
           />
         </View>
 
-        <View style={{ flex: 2 }}>
-          <Text>Placeholder</Text>
+        <View style={[{ flex: 2 }, styles.detailColumn]}>
+          <WorkExperiencePdf workExperienceArray={resume.workExperience}/>
         </View>
       </Page>
     </Document>
