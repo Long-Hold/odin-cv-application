@@ -17,6 +17,15 @@ export const GLOBAL_STYLES = StyleSheet.create({
     flexWrap: 'nowrap',
     gap: '16px',
   },
+  entrySection: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  subHeadDate: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   sectionHeader: {
     fontFamily: 'fira_sansbold',
     fontSize: '18pt',
