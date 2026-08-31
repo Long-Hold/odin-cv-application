@@ -6,7 +6,7 @@ import "./styles/formStyles.css"
 import { useState } from "react";
 import { Icon } from "@mdi/react";
 import { mdiPencilOutline } from '@mdi/js';
-import { mdiEyeOutline, mdiExportVariant, mdiCloseBoxOutline } from '@mdi/js';
+import { mdiEyeOutline, mdiFilePdfBox, mdiCloseBoxOutline } from '@mdi/js';
 import { PDFViewer } from "@react-pdf/renderer";
 import { ResumePdfDocument } from "../pdf/ResumePdfDocument";
 import { useRef } from "react";
@@ -33,7 +33,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           type="button"
           className="headerBtn exportPrint"
           onClick={toggleModal}
-        ><Icon path={mdiExportVariant} size={1} />print / export PDF</button>
+        ><Icon path={mdiFilePdfBox} size={1} />preview PDF</button>
         <button
           type="button"
           className="headerBtn toggleHideFormBtn"
