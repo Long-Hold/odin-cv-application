@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 export function SkillsDetailsPdf({skillsArray}) {
   return (
     <View style={GLOBAL_STYLES.detailSection}>
-      <Text>SKILLS</Text>
+      <Text style={GLOBAL_STYLES.sectionHeader}>SKILLS</Text>
 
       <View style={styles.list}>
         {skillsArray.map(entry => 
