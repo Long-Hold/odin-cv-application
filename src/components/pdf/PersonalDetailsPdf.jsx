@@ -8,11 +8,14 @@ Font.register({
   src: FiraSansBold,
 });
 
-// Column width in points, from the fixed PDF page layout (not measured live).
-const NAME_COLUMN_WIDTH_PT = 172; // TODO: derive from actual page/column math
+// First column width in pt, derived from ResumePdfDocument's `styles.page`:
+// (8.5in page − 2×0.75in padding − 24px gap×0.75 px→pt) × (flex 1 / total flex 3)
+// = (612 − 108 − 18) × (1/3) = 162pt
+// Keep in sync if page padding, gap, or column flex ratios change in ResumePdfDocument.jsx.
+const FIRST_COLUMN_WIDTH_PT = 162;
 
 export function PersonalDetailsPdf({name, email, number, summary}) {
-  const fittedNameSize = measureFitFontSize(name, NAME_COLUMN_WIDTH_PT, 22);
+  const fittedNameSize = measureFitFontSize(name, FIRST_COLUMN_WIDTH_PT, 22);
 
   return (
     <View style={GLOBAL_STYLES.detailSection}>
