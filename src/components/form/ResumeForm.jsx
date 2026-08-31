@@ -6,22 +6,33 @@ import "./styles/formStyles.css"
 import { useState } from "react";
 import { Icon } from "@mdi/react";
 import { mdiPencilOutline } from '@mdi/js';
-import { mdiEyeOutline, mdiExportVariant } from '@mdi/js';
+import { mdiEyeOutline, mdiExportVariant, mdiCloseBoxOutline } from '@mdi/js';
 import { PDFViewer } from "@react-pdf/renderer";
 import { ResumePdfDocument } from "../pdf/ResumePdfDocument";
+import { useRef } from "react";
 
 export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
   const [isFormOpen, setFormState] = useState(true);
   const toggleForm = () => {
     setFormState((prevState) => !prevState);
   };
+
+  const dialogRef = useRef(null);
+  const toggleModal = () => {
+    if (!dialogRef.current) return;
+
+    if (dialogRef.current.open)
+      dialogRef.current.close();
+    else
+      dialogRef.current.showModal();
+  }
   return (
     <div className="sidebar">
       <header className="formVisibilityControls">
         <button
           type="button"
           className="headerBtn exportPrint"
-          onClick={() => window.print()}
+          onClick={toggleModal}
         ><Icon path={mdiExportVariant} size={1} />print / export PDF</button>
         <button
           type="button"
@@ -66,7 +77,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           />
         </form>
       </section>
-      <dialog open>
+      <dialog ref={dialogRef} closedby="any">
         <PDFViewer style={{
           position: 'absolute',
           width: '100vw',
@@ -74,6 +85,11 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           height: '100dvh'}}>
           <ResumePdfDocument resume={resumeObject}/>
         </PDFViewer>
+        <button
+          type="button"
+          className="headerBtn closeModalBtn"
+          onClick={toggleModal}
+        ><Icon path={mdiCloseBoxOutline} size={1} /></button>
       </dialog>
     </div>
   )
