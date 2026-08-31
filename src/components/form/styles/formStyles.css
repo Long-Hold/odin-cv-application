@@ -279,3 +279,14 @@ Needs to be tested in Firefox & Safari */
     background-color: color-mix(in srgb, var(--charcoal-gray) 85%, white);
   }
 }
+
+dialog:modal {
+  min-width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
