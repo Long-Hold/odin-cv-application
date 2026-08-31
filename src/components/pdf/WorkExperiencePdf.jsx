@@ -1,17 +1,5 @@
-import { View, Text, StyleSheet } from "@react-pdf/renderer";
+import { View, Text } from "@react-pdf/renderer";
 import { GLOBAL_STYLES } from "./globalStyles/globalStyles";
-
-const styles = StyleSheet.create({
-  entrySection: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  subHeadDate: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  }
-})
 
 export function WorkExperiencePdf({workExperienceArray}) {
   return (
@@ -24,9 +12,9 @@ export function WorkExperiencePdf({workExperienceArray}) {
 
 function WorkExperienceEntry({companyName, position, jobDescription, dateRange}) {
   return (
-    <View style={styles.entrySection}>
+    <View style={GLOBAL_STYLES.entrySection}>
       <Text style={GLOBAL_STYLES.entryHeader}>{companyName}</Text>
-      <View style={styles.subHeadDate}>
+      <View style={GLOBAL_STYLES.subHeadDate}>
         <Text style={GLOBAL_STYLES.entrySubHeader}>{position}</Text>
         <Text style={GLOBAL_STYLES.dateText}>{dateRange}</Text>
       </View>
