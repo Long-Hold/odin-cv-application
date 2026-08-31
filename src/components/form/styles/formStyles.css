@@ -50,20 +50,20 @@ fieldset ul,
     letter-spacing: 0.1rem;
     font-size: 0.8rem;
   }
-
-  .headerBtn {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content:space-between;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--off-white);
-    
-    &:focus-visible, &:hover {
-      background-color: color-mix(in srgb, var(--off-white) 80%, var(--charcoal-gray));
-    }
-  } 
 }
+
+.headerBtn {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content:space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--off-white);
+  
+  &:focus-visible, &:hover {
+    background-color: color-mix(in srgb, var(--off-white) 80%, var(--charcoal-gray));
+  }
+} 
 
 /* 
 Warm color scheme:
@@ -284,6 +284,13 @@ dialog:modal {
   min-width: 100vw;
   min-height: 100vh;
   min-height: 100dvh;
+  header {
+    background-color: var(--charcoal-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+  }
 }
 
 iframe {
