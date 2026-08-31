@@ -3,6 +3,7 @@ import { PersonalDetailsPdf } from "./PersonalDetailsPdf";
 import { SkillsDetailsPdf } from "./SkillsDetailsPdf";
 import { WorkExperiencePdf } from "./WorkExperiencePdf";
 import FiraSansRegular from "../../assets/fonts/FiraSans-Regular.ttf";
+import { EducationDetailsPdf } from "./EducationDetailsPdf";
 
 // Prevents hyphening words that break
 Font.registerHyphenationCallback((word) => [word]);
@@ -48,6 +49,7 @@ export function ResumePdfDocument({resume}) {
 
         <View style={[{ flex: 2 }, styles.detailColumn]}>
           <WorkExperiencePdf workExperienceArray={resume.workExperience}/>
+          <EducationDetailsPdf educationArray={resume.education} />
         </View>
       </Page>
     </Document>
