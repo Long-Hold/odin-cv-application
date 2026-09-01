@@ -141,21 +141,25 @@ details {
 
 .collapsibleContainer {
   display: grid;
-}
 
-.collapsibleContainer > * {
-  grid-column: 1;
-  grid-row: 1;
-}
+  /* Let's the delete button and summary overlap the same position
+    useful for keeping the button permanently visisble + inline with the summary chevron
+    but independent of them so it doesn't violate acccessibility concerns
+  */
+  > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
 
-.collapsibleContainer > .removeEntryBtn {
-  justify-self: end;
-  align-self: start;
-  z-index: 1;
-}
+  .removeEntryBtn {
+    justify-self: end;
+    align-self: start;
+    z-index: 1;
+  }
 
-.collapsibleContainer > details > summary {
-  padding-inline-end: 3rem; /* reserve space so text/chevron don't sit under the button */
+  > details > summary {
+    padding-inline-end: 3rem;
+  }
 }
 
 summary {
