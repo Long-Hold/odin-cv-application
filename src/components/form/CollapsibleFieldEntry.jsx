@@ -8,7 +8,6 @@
 export function CollapsibleFieldEntry({detailsClass, summaryText, legendText, entryComponent, deleteButton = null}) {
   return (
     <div className="collapsibleContainer">
-      {deleteButton}
       <details className={detailsClass} open>
         <summary>
           {summaryText}
@@ -18,6 +17,7 @@ export function CollapsibleFieldEntry({detailsClass, summaryText, legendText, en
           {entryComponent}
         </fieldset>
       </details>
+      {deleteButton}
     </div>
   )
 }
