@@ -7,15 +7,17 @@
  */
 export function CollapsibleFieldEntry({detailsClass, summaryText, legendText, entryComponent, deleteButton = null}) {
   return (
-    <details className={detailsClass} open>
-      <summary>
-        {summaryText}
-        {deleteButton}
-      </summary>
-      <fieldset>
-        <legend className="visuallyHidden">{legendText}</legend>
-        {entryComponent}
-      </fieldset>
-    </details>
+    <div className="collapsibleContainer">
+      {deleteButton}
+      <details className={detailsClass} open>
+        <summary>
+          {summaryText}
+        </summary>
+        <fieldset>
+          <legend className="visuallyHidden">{legendText}</legend>
+          {entryComponent}
+        </fieldset>
+      </details>
+    </div>
   )
 }
