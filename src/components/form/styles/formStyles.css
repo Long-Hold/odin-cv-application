@@ -139,24 +139,39 @@ details {
   gap: 0.5em;
 }
 
+.collapsibleContainer {
+  display: grid;
+}
+
+.collapsibleContainer > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.collapsibleContainer > .removeEntryBtn {
+  justify-self: end;
+  align-self: start;
+  z-index: 1;
+}
+
+.collapsibleContainer > details > summary {
+  padding-inline-end: 3rem; /* reserve space so text/chevron don't sit under the button */
+}
+
 summary {
   /* Removes the triangle */
   list-style: none;
-  display: grid;
+  display: flex;
+  flex-flow: row nowrap;
   align-items: center;
-  grid-template-columns:1fr auto auto;
-  grid-template-areas: "label icon button";
-  gap: 1em;
+  justify-content: space-between;
   cursor: pointer;
+  min-height: var(--button-height);
 
   &::after {
     content: "›";
     font-size: 1.5rem;
     transition: transform 0.2s ease;
-    grid-area: icon;
-  }
-  &.removeEntryBtn {
-    grid-area: button;
   }
 }
 
