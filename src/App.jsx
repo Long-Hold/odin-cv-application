@@ -3,6 +3,7 @@ import { useResumeState } from './hooks/useResumeState';
 import { ResumeForm } from './components/form/ResumeForm';
 import { ResumeTemplate } from './components/display/ResumeTemplate';
 import { sampleResumeData } from './constants/sampleResumeData';
+import { Footer } from './components/footers/Footer';
 
 function App() {
   /**
@@ -25,6 +26,8 @@ function App() {
       <ResumeTemplate 
         resumeObject={resume}
       />
+
+      <Footer/>
     </>
   )
 }
