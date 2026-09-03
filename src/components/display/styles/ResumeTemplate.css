@@ -96,6 +96,19 @@
       "companyName companyName"
       "position employmentTerm"
       "jobDescription jobDescription";
+    
+    h3 {
+      grid-area: companyName;
+    }
+    .position {
+      grid-area: position;
+    }
+    .date {
+      grid-area: employmentTerm;
+    }
+    .multiLine {
+      grid-area: jobDescription;
+    }
   }
   &.educationEntry {
     grid-template-rows: auto auto;
