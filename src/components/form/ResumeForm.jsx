@@ -10,21 +10,36 @@ import { mdiEyeOutline, mdiFilePdfBox, mdiCloseBoxOutline } from '@mdi/js';
 import { PDFViewer } from "@react-pdf/renderer";
 import { ResumePdfDocument } from "../pdf/ResumePdfDocument";
 import { useRef } from "react";
+import { useEffect } from "react";
 
 export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
   const [isFormOpen, setFormState] = useState(true);
+  const [isPDFOpen, setPDFState] = useState(false);
   const toggleForm = () => {
     setFormState((prevState) => !prevState);
   };
+
+  // Sets the isPDFOpen state to false for any closure methods on the modal (hitting esc, clicking elsewhere)
+  useEffect(() => {
+    const dialogEl = dialogRef.current;
+    if (!dialogEl) return;
+
+    const handleClose = () => setPDFState(false);
+    dialogEl.addEventListener('close', handleClose);
+    return () => dialogEl.removeEventListener('close', handleClose);
+    }, []);
 
   const dialogRef = useRef(null);
   const toggleModal = () => {
     if (!dialogRef.current) return;
 
-    if (dialogRef.current.open)
+    if (dialogRef.current.open) {
       dialogRef.current.close();
-    else
+    }
+    else {
+      setPDFState(true);
       dialogRef.current.showModal();
+    }
   }
   return (
     <div className="sidebar">
@@ -85,13 +100,15 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
             onClick={toggleModal}
           ><Icon path={mdiCloseBoxOutline} size={1} />close preview</button>
         </header>
-        <PDFViewer style={{
-          position: 'absolute',
-          width: '100vw',
-          height: '100vh', 
-          height: '100dvh'}}>
-          <ResumePdfDocument resume={resumeObject}/>
-        </PDFViewer>
+        {isPDFOpen && (
+            <PDFViewer style={{
+              position: 'absolute',
+              width: '100vw',
+              height: '100vh', 
+              height: '100dvh'}}>
+              <ResumePdfDocument resume={resumeObject}/>
+            </PDFViewer>   
+        )}
       </dialog>
     </div>
   )
