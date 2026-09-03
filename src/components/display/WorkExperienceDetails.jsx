@@ -1,5 +1,3 @@
-import "./styles/ResumeTemplate.css";
-
 export function WorkExperienceDetails({workExperienceArray}) {
   return (
     <section className="workExperienceDetails">

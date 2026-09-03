@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { useFitText } from "../../hooks/resizeTextFont";
-import "./styles/ResumeTemplate.css";
 
 export function PersonalDetails({name, email, number, summary}) {
   const nameRef = useRef(null);
