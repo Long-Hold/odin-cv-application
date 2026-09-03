@@ -2,6 +2,13 @@ import { useState } from "react";
 import { RESUME_KEYS } from "../constants/resumeKeys";
 import { createResumeEntry } from "../utils/resumeTemplates";
 
+const resumeEntries = Object.values(RESUME_KEYS).map((key) => {
+    if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE || key === RESUME_KEYS.SKILLS)
+      return [key, []];
+    return [key, ''];
+})
+const initialResumeObjectState = Object.fromEntries(resumeEntries);
+
 
 /**
  * Custom hook that owns the resume's shared state and all state-mutation logic.
@@ -16,19 +23,14 @@ import { createResumeEntry } from "../utils/resumeTemplates";
  * @returns {function} return.handleEntryFieldChange - Updates a single field within an education or work experience entry, matched by entry id.
  * @returns {function} return.addNewResumeData - Appends a new blank entry (education or work experience) to the corresponding array.
  * @returns {function} return.removeResumeEntry - Removes an existing entry that matches the captured entry.id value from the corresponding array.
+ * @returns {function} return.clearAllInfo - Constructs a brand new Resume Object from default state without any sample data.
  */
 export function useResumeState(initialData = {}) {
   const [resume, setResume] = useState(() => {
-    const entries = Object.values(RESUME_KEYS).map((key) => {
-      if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE || key === RESUME_KEYS.SKILLS)
-        return [key, []];
-      return [key, ''];
-    })
-
     return {
-      ...Object.fromEntries(entries),
-      ...initialData
-    };
+      ...initialResumeObjectState,
+      ...initialData,
+    }
   });
 
   const handleContactChange = (name, value) => {
@@ -73,11 +75,16 @@ export function useResumeState(initialData = {}) {
     })
   }
 
+  const clearAllInfo = () => {
+    setResume(initialResumeObjectState);
+  }
+
   return {
     resume,
     handleContactChange,
     handleEntryFieldChange,
     addNewResumeData,
     removeResumeEntry,
+    clearAllInfo,
   }
 }
