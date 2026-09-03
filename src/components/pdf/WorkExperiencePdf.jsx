@@ -1,16 +1,23 @@
 import { View, Text } from "@react-pdf/renderer";
 import { GLOBAL_STYLES } from "./globalStyles/globalStyles";
 
-export function WorkExperiencePdf({workExperienceArray}) {
+export function WorkExperiencePdf({ workExperienceArray }) {
   return (
     <View style={GLOBAL_STYLES.detailSection}>
       <Text style={GLOBAL_STYLES.sectionHeader}>EXPERIENCE</Text>
-      {workExperienceArray.map(entry => <WorkExperienceEntry key={entry.id} {...entry}/>)}
+      {workExperienceArray.map((entry) => (
+        <WorkExperienceEntry key={entry.id} {...entry} />
+      ))}
     </View>
-  )
+  );
 }
 
-function WorkExperienceEntry({companyName, position, jobDescription, dateRange}) {
+function WorkExperienceEntry({
+  companyName,
+  position,
+  jobDescription,
+  dateRange,
+}) {
   return (
     <View style={GLOBAL_STYLES.entrySection}>
       <Text style={GLOBAL_STYLES.entryHeader}>{companyName}</Text>
@@ -20,5 +27,5 @@ function WorkExperienceEntry({companyName, position, jobDescription, dateRange})
       </View>
       <Text>{jobDescription}</Text>
     </View>
-  )
+  );
 }

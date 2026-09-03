@@ -4,14 +4,17 @@ import { createResumeEntry } from "../utils/resumeTemplates";
 
 function createInitialResumeState() {
   const resumeEntries = Object.values(RESUME_KEYS).map((key) => {
-      if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE || key === RESUME_KEYS.SKILLS)
-        return [key, []];
-      return [key, ''];
+    if (
+      key === RESUME_KEYS.EDUCATION ||
+      key === RESUME_KEYS.WORK_EXPERIENCE ||
+      key === RESUME_KEYS.SKILLS
+    )
+      return [key, []];
+    return [key, ""];
   });
 
   return Object.fromEntries(resumeEntries);
 }
-
 
 /**
  * Custom hook that owns the resume's shared state and all state-mutation logic.
@@ -33,54 +36,53 @@ export function useResumeState(initialData = {}) {
     return {
       ...createInitialResumeState(),
       ...initialData,
-    }
+    };
   });
 
   const handleContactChange = (name, value) => {
     setResume((prevResume) => {
       return {
         ...prevResume,
-        [name]: value
-      }
+        [name]: value,
+      };
     });
-  }
+  };
 
   const handleEntryFieldChange = (fieldType, entryId, name, value) => {
     setResume((prevResume) => {
       const updatedArray = prevResume[fieldType].map((entry) => {
-        return entry.id === entryId ? {...entry, [name]: value} : entry
+        return entry.id === entryId ? { ...entry, [name]: value } : entry;
       });
-      
+
       return {
         ...prevResume,
-        [fieldType] : updatedArray
-      }
-    })
-  }
+        [fieldType]: updatedArray,
+      };
+    });
+  };
 
   const addNewResumeData = (fieldType) => {
     setResume((prevResume) => ({
       ...prevResume,
-      [fieldType]: [
-        ...prevResume[fieldType],
-        createResumeEntry(fieldType)
-      ]
+      [fieldType]: [...prevResume[fieldType], createResumeEntry(fieldType)],
     }));
-  }
+  };
 
   const removeResumeEntry = (fieldType, entryId) => {
     setResume((prevResume) => {
-      const updatedArray = prevResume[fieldType].filter(entry => entry.id !== entryId);
+      const updatedArray = prevResume[fieldType].filter(
+        (entry) => entry.id !== entryId,
+      );
       return {
         ...prevResume,
-        [fieldType] : updatedArray
-      }
-    })
-  }
+        [fieldType]: updatedArray,
+      };
+    });
+  };
 
   const clearAllInfo = () => {
     setResume(createInitialResumeState());
-  }
+  };
 
   return {
     resume,
@@ -89,5 +91,5 @@ export function useResumeState(initialData = {}) {
     addNewResumeData,
     removeResumeEntry,
     clearAllInfo,
-  }
+  };
 }

@@ -3,7 +3,7 @@ const FONT_STEP = 0.5;
 
 let ctx = null;
 function getContext() {
-  if (!ctx) ctx = document.createElement('canvas').getContext('2d');
+  if (!ctx) ctx = document.createElement("canvas").getContext("2d");
   return ctx;
 }
 
@@ -12,7 +12,12 @@ function getContext() {
  * Canvas instead of live DOM layout — works identically whether or not
  * a real element exists to measure against.
  */
-export function measureFitFontSize(text, maxWidth, baseFontSize, fontFamily = 'fira_sansbold') {
+export function measureFitFontSize(
+  text,
+  maxWidth,
+  baseFontSize,
+  fontFamily = "fira_sansbold",
+) {
   const context = getContext();
   let size = baseFontSize;
 

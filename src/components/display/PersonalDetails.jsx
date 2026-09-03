@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useFitText } from "../../hooks/resizeTextFont";
 
-export function PersonalDetails({name, email, number, summary}) {
+export function PersonalDetails({ name, email, number, summary }) {
   const nameRef = useRef(null);
   useFitText(nameRef, name, 22);
 
@@ -12,5 +12,5 @@ export function PersonalDetails({name, email, number, summary}) {
       <p>{number}</p>
       <p className="multiLine">{summary}</p>
     </section>
-  )
+  );
 }

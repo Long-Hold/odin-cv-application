@@ -1,8 +1,8 @@
-import { RESUME_KEYS, WORK_EXPERIENCE_KEYS } from "../../constants/resumeKeys"
-import { FormField } from "./FormField"
-import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry"
-import { RemoveEntryButton } from "./RemoveEntryButton"
-import { AddEntryButton } from "./AddEntryButton"
+import { RESUME_KEYS, WORK_EXPERIENCE_KEYS } from "../../constants/resumeKeys";
+import { FormField } from "./FormField";
+import { CollapsibleFieldEntry } from "./CollapsibleFieldEntry";
+import { RemoveEntryButton } from "./RemoveEntryButton";
+import { AddEntryButton } from "./AddEntryButton";
 
 const workExperienceFieldsConfig = [
   {
@@ -21,23 +21,36 @@ const workExperienceFieldsConfig = [
     name: WORK_EXPERIENCE_KEYS.DATE_RANGE,
     label: "Employment Term",
     type: "text",
-    placeholder: "2020.09 - ongoing"
+    placeholder: "2020.09 - ongoing",
   },
   {
     name: WORK_EXPERIENCE_KEYS.JOB_DESCRIPTION,
     label: "Job Description",
     multiLine: true,
-    placeholder: "I took a hands-on approach with the projects handed to me, particularly with the shader algorithms to...",
-  }
-]
+    placeholder:
+      "I took a hands-on approach with the projects handed to me, particularly with the shader algorithms to...",
+  },
+];
 
-export function WorkExperienceFields({onChange, resumeData, addField, removeEntry}) {
+export function WorkExperienceFields({
+  onChange,
+  resumeData,
+  addField,
+  removeEntry,
+}) {
   return (
     <>
       <fieldset className="workExperienceFields">
         <legend>Work Experience</legend>
         <ol>
-          {resumeData.map(entry => <WorkExperienceEntry key={entry.id} entry={entry} onChange={onChange} removeEntry={removeEntry} />)}
+          {resumeData.map((entry) => (
+            <WorkExperienceEntry
+              key={entry.id}
+              entry={entry}
+              onChange={onChange}
+              removeEntry={removeEntry}
+            />
+          ))}
         </ol>
         <AddEntryButton
           addField={addField}
@@ -46,27 +59,38 @@ export function WorkExperienceFields({onChange, resumeData, addField, removeEntr
         />
       </fieldset>
     </>
-  )
+  );
 }
 
-function WorkExperienceEntry({entry, onChange, removeEntry}) {
+function WorkExperienceEntry({ entry, onChange, removeEntry }) {
   return (
     <li>
       <CollapsibleFieldEntry
         detailsClass={"workExperienceField"}
-        summaryText={entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] ? entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME] : "New Work Experience Entry"}
+        summaryText={
+          entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME]
+            ? entry[WORK_EXPERIENCE_KEYS.COMPANY_NAME]
+            : "New Work Experience Entry"
+        }
         legendText={"Work Experience Entry"}
-        entryComponent={workExperienceFieldsConfig.map(field => (
-          <FormField 
+        entryComponent={workExperienceFieldsConfig.map((field) => (
+          <FormField
             key={field.name}
             value={entry[field.name]}
-            onChange={(event) => onChange(RESUME_KEYS.WORK_EXPERIENCE, entry.id, field.name, event.currentTarget.value)}
+            onChange={(event) =>
+              onChange(
+                RESUME_KEYS.WORK_EXPERIENCE,
+                entry.id,
+                field.name,
+                event.currentTarget.value,
+              )
+            }
             entryId={entry.id}
             {...field}
           />
         ))}
         deleteButton={
-          <RemoveEntryButton 
+          <RemoveEntryButton
             fieldType={RESUME_KEYS.WORK_EXPERIENCE}
             entryId={entry.id}
             removeEntry={removeEntry}
@@ -75,5 +99,5 @@ function WorkExperienceEntry({entry, onChange, removeEntry}) {
         }
       />
     </li>
-  )
+  );
 }

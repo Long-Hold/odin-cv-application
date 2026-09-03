@@ -2,18 +2,25 @@ import { PersonalFields } from "./PersonalFields";
 import { EducationFields } from "./EducationFields";
 import { WorkExperienceFields } from "./WorkExperienceFields";
 import { SkillsFields } from "./SkillsFields";
-import "./styles/formStyles.css"
+import "./styles/formStyles.css";
 import { useState } from "react";
 import { Icon } from "@mdi/react";
-import { mdiPencilOutline } from '@mdi/js';
-import { mdiEyeOutline, mdiFilePdfBox, mdiCloseBoxOutline } from '@mdi/js';
+import { mdiPencilOutline } from "@mdi/js";
+import { mdiEyeOutline, mdiFilePdfBox, mdiCloseBoxOutline } from "@mdi/js";
 import { PDFViewer } from "@react-pdf/renderer";
 import { ResumePdfDocument } from "../pdf/ResumePdfDocument";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { mdiDelete } from "@mdi/js";
 
-export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry, clearAllInfo}) {
+export function ResumeForm({
+  resumeObject,
+  handleContactChange,
+  handleEntryFieldChange,
+  addNewResumeData,
+  removeResumeEntry,
+  clearAllInfo,
+}) {
   const [isFormOpen, setFormState] = useState(true);
   const [isPDFOpen, setPDFState] = useState(false);
   const toggleForm = () => {
@@ -26,9 +33,9 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
     if (!dialogEl) return;
 
     const handleClose = () => setPDFState(false);
-    dialogEl.addEventListener('close', handleClose);
-    return () => dialogEl.removeEventListener('close', handleClose);
-    }, []);
+    dialogEl.addEventListener("close", handleClose);
+    return () => dialogEl.removeEventListener("close", handleClose);
+  }, []);
 
   const dialogRef = useRef(null);
   const toggleModal = () => {
@@ -36,12 +43,11 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
 
     if (dialogRef.current.open) {
       dialogRef.current.close();
-    }
-    else {
+    } else {
       setPDFState(true);
       dialogRef.current.showModal();
     }
-  }
+  };
   return (
     <div className="sidebar">
       <header className="formVisibilityControls">
@@ -49,12 +55,17 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           type="button"
           className="headerBtn removeEntryBtn"
           onClick={clearAllInfo}
-        ><Icon path={mdiDelete} size={1}></Icon>clear all</button>
+        >
+          <Icon path={mdiDelete} size={1}></Icon>clear all
+        </button>
         <button
           type="button"
           className="headerBtn exportPrint"
           onClick={toggleModal}
-        ><Icon path={mdiFilePdfBox} size={1} />preview PDF</button>
+        >
+          <Icon path={mdiFilePdfBox} size={1} />
+          preview PDF
+        </button>
         <button
           type="button"
           className="headerBtn toggleHideFormBtn"
@@ -66,17 +77,17 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
         </button>
       </header>
       <section className={`resumeFormSection${isFormOpen ? "" : " hide"}`}>
-        <form 
+        <form
           className="resumeDetailsForm"
           onSubmit={(event) => event.preventDefault()}
           noValidate
         >
-          <PersonalFields 
-            onChange={handleContactChange} 
-            resumeData={resumeObject} 
+          <PersonalFields
+            onChange={handleContactChange}
+            resumeData={resumeObject}
           />
 
-          <SkillsFields 
+          <SkillsFields
             onChange={handleEntryFieldChange}
             resumeData={resumeObject.skills}
             addField={addNewResumeData}
@@ -84,16 +95,16 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           />
 
           <WorkExperienceFields
-            onChange={handleEntryFieldChange} 
-            resumeData={resumeObject.workExperience} 
-            addField={addNewResumeData} 
+            onChange={handleEntryFieldChange}
+            resumeData={resumeObject.workExperience}
+            addField={addNewResumeData}
             removeEntry={removeResumeEntry}
           />
 
-          <EducationFields 
-            onChange={handleEntryFieldChange} 
-            resumeData={resumeObject.education} 
-            addField={addNewResumeData} 
+          <EducationFields
+            onChange={handleEntryFieldChange}
+            resumeData={resumeObject.education}
+            addField={addNewResumeData}
             removeEntry={removeResumeEntry}
           />
         </form>
@@ -104,18 +115,24 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
             type="button"
             className="headerBtn closeModalBtn"
             onClick={toggleModal}
-          ><Icon path={mdiCloseBoxOutline} size={1} />close preview</button>
+          >
+            <Icon path={mdiCloseBoxOutline} size={1} />
+            close preview
+          </button>
         </header>
         {isPDFOpen && (
-            <PDFViewer style={{
-              position: 'absolute',
-              width: '100vw',
-              height: '100vh', 
-              height: '100dvh'}}>
-              <ResumePdfDocument resume={resumeObject}/>
-            </PDFViewer>   
+          <PDFViewer
+            style={{
+              position: "absolute",
+              width: "100vw",
+              height: "100vh",
+              height: "100dvh",
+            }}
+          >
+            <ResumePdfDocument resume={resumeObject} />
+          </PDFViewer>
         )}
       </dialog>
     </div>
-  )
+  );
 }

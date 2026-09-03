@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'fira_sansregular';
-  src: url('../src/assets/fonts/firasans-regular.woff2') format('woff2');
+  font-family: "fira_sansregular";
+  src: url("../src/assets/fonts/firasans-regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'fira_sansbold';
-  src: url('./assets/fonts/firasans-bold.woff2') format('woff2');
+  font-family: "fira_sansbold";
+  src: url("./assets/fonts/firasans-bold.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'fira_sansmedium';
-  src: url('./assets/fonts/firasans-medium.woff2') format('woff2');
+  font-family: "fira_sansmedium";
+  src: url("./assets/fonts/firasans-medium.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -33,9 +33,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --off-white: #FAF6F0;
-  --dark-beige: #C9C2B3;
-  --charcoal-gray: #33302C;
+  --off-white: #faf6f0;
+  --dark-beige: #c9c2b3;
+  --charcoal-gray: #33302c;
   --header-height: 3rem;
   --sidebar-width: min(100vw, 25rem);
   --button-height: 2.5rem;
@@ -43,7 +43,7 @@
 }
 
 body {
-  font-family: 
+  font-family:
     "fira_sansregular", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
@@ -63,7 +63,7 @@ button {
   transition: 0.2s background-color ease-out;
   &:focus-visible {
     outline: 3px solid #0361e4af; /* High-visibility blue */
-    outline-offset: 2px;        /* Spacing away from the button */
+    outline-offset: 2px; /* Spacing away from the button */
     box-shadow: 0 0 0 2px #fff; /* White buffer ring underneath */
   }
 }
@@ -106,7 +106,12 @@ li {
 }
 
 /* Prevents the user from breaking the horizontal layout with massive strings */
-h1, h2, h3, p, summary, textarea {
+h1,
+h2,
+h3,
+p,
+summary,
+textarea {
   overflow-wrap: anywhere;
 }
 
@@ -129,7 +134,9 @@ h1, h2, h3, p, summary, textarea {
     display: none !important;
   }
 
-  .resumeContainer, .resumeTemplate, body {
+  .resumeContainer,
+  .resumeTemplate,
+  body {
     padding: 0 !important;
     margin: 0 !important;
   }

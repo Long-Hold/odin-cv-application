@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Icon } from '@mdi/react';
-import { mdiChevronUp } from '@mdi/js';
-import './footer.css';
+import { useState } from "react";
+import { Icon } from "@mdi/react";
+import { mdiChevronUp } from "@mdi/js";
+import "./footer.css";
 
 export function Footer() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className={`footerWrapper${isOpen ? ' open' : ''}`}>
+    <div className={`footerWrapper${isOpen ? " open" : ""}`}>
       <button
         type="button"
         className="footerTab"
@@ -23,14 +23,20 @@ export function Footer() {
         <p>
           <small>
             Designed And Developed by Matthew Harview
-            <span className='socialLink'>
-              | GitHub <a href='https://github.com/Long-Hold'><i className="devicon-github-original"></i></a>
-              | Source Code <a href='https://github.com/Long-Hold/odin-cv-application'><i className="devicon-git-plain"></i></a>
+            <span className="socialLink">
+              | GitHub{" "}
+              <a href="https://github.com/Long-Hold">
+                <i className="devicon-github-original"></i>
+              </a>
+              | Source Code{" "}
+              <a href="https://github.com/Long-Hold/odin-cv-application">
+                <i className="devicon-git-plain"></i>
+              </a>
               |
             </span>
           </small>
         </p>
       </footer>
     </div>
-  )
+  );
 }

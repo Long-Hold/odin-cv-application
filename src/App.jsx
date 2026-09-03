@@ -1,9 +1,9 @@
-import './App.css'
-import { useResumeState } from './hooks/useResumeState';
-import { ResumeForm } from './components/form/ResumeForm';
-import { ResumeTemplate } from './components/display/ResumeTemplate';
-import { sampleResumeData } from './constants/sampleResumeData';
-import { Footer } from './components/footers/Footer';
+import "./App.css";
+import { useResumeState } from "./hooks/useResumeState";
+import { ResumeForm } from "./components/form/ResumeForm";
+import { ResumeTemplate } from "./components/display/ResumeTemplate";
+import { sampleResumeData } from "./constants/sampleResumeData";
+import { Footer } from "./components/footers/Footer";
 
 function App() {
   /**
@@ -11,11 +11,18 @@ function App() {
    * As the user enters data into the form, this object receives the most current state, and
    * reflects it in the resume template.
    */
-  const {resume, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry, clearAllInfo} = useResumeState(sampleResumeData);
+  const {
+    resume,
+    handleContactChange,
+    handleEntryFieldChange,
+    addNewResumeData,
+    removeResumeEntry,
+    clearAllInfo,
+  } = useResumeState(sampleResumeData);
 
   return (
     <>
-      <ResumeForm 
+      <ResumeForm
         resumeObject={resume}
         handleContactChange={handleContactChange}
         handleEntryFieldChange={handleEntryFieldChange}
@@ -24,13 +31,11 @@ function App() {
         clearAllInfo={clearAllInfo}
       />
 
-      <ResumeTemplate 
-        resumeObject={resume}
-      />
+      <ResumeTemplate resumeObject={resume} />
 
-      <Footer/>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

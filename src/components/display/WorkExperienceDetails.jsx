@@ -1,13 +1,20 @@
-export function WorkExperienceDetails({workExperienceArray}) {
+export function WorkExperienceDetails({ workExperienceArray }) {
   return (
     <section className="workExperienceDetails">
       <h2>EXPERIENCE</h2>
-      {workExperienceArray.map(entry => <WorkExperienceEntry key={entry.id} {...entry} />)}
+      {workExperienceArray.map((entry) => (
+        <WorkExperienceEntry key={entry.id} {...entry} />
+      ))}
     </section>
-  )
+  );
 }
 
-function WorkExperienceEntry({companyName, position, jobDescription, dateRange}) {
+function WorkExperienceEntry({
+  companyName,
+  position,
+  jobDescription,
+  dateRange,
+}) {
   return (
     <section className="resumeEntry workExperienceEntry">
       <h3>{companyName}</h3>
@@ -15,5 +22,5 @@ function WorkExperienceEntry({companyName, position, jobDescription, dateRange})
       <p className="date">{dateRange}</p>
       <p className="multiLine">{jobDescription}</p>
     </section>
-  )
+  );
 }

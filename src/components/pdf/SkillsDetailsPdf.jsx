@@ -4,21 +4,21 @@ import { SKILLS_KEYS } from "../../constants/resumeKeys";
 
 const styles = StyleSheet.create({
   list: {
-    flexDirection: 'column',
-    gap: '8px',
-  }
-})
+    flexDirection: "column",
+    gap: "8px",
+  },
+});
 
-export function SkillsDetailsPdf({skillsArray}) {
+export function SkillsDetailsPdf({ skillsArray }) {
   return (
     <View style={GLOBAL_STYLES.detailSection}>
       <Text style={GLOBAL_STYLES.sectionHeader}>SKILLS</Text>
 
       <View style={styles.list}>
-        {skillsArray.map(entry => 
+        {skillsArray.map((entry) => (
           <Text key={entry.id}>{entry[SKILLS_KEYS.SKILL]}</Text>
-        )}
+        ))}
       </View>
     </View>
-  )
+  );
 }

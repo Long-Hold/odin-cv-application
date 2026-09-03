@@ -16,14 +16,22 @@
  * @returns {JSX.Element} A fragment containing a `<label>` and its corresponding `<input>` or `<textarea>`.
  */
 export function FormField({
-  name, label, type, placeholder, autoCompleteType, value, onChange, multiLine = false, entryId = null
+  name,
+  label,
+  type,
+  placeholder,
+  autoCompleteType,
+  value,
+  onChange,
+  multiLine = false,
+  entryId = null,
 }) {
   /**
    * For an input group from something like the education or work experience fieldsets, we have multiple
-   * inputs that would otherwise share the same id. In that case, I add their object's unique id to the 
+   * inputs that would otherwise share the same id. In that case, I add their object's unique id to the
    * name property which is then used for the id.
    */
-  const fieldId = (entryId !== null) ? `${name}_${entryId}` : name;
+  const fieldId = entryId !== null ? `${name}_${entryId}` : name;
   return (
     <>
       <div className="labelInputGroup">
@@ -49,5 +57,5 @@ export function FormField({
         )}
       </div>
     </>
-  )
+  );
 }

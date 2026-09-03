@@ -8,12 +8,15 @@ export function useFitText(ref, text, baseFontSize) {
     const element = ref.current;
     if (!element) return;
 
-    element.style.setProperty('--name-font-size', `${baseFontSize}pt`);
+    element.style.setProperty("--name-font-size", `${baseFontSize}pt`);
 
     let currentSize = baseFontSize;
-    while (element.scrollWidth > element.clientWidth && currentSize > MIN_FONT_SIZE) {
+    while (
+      element.scrollWidth > element.clientWidth &&
+      currentSize > MIN_FONT_SIZE
+    ) {
       currentSize -= FONT_STEP;
-      element.style.setProperty('--name-font-size', `${currentSize}pt`);
+      element.style.setProperty("--name-font-size", `${currentSize}pt`);
     }
   }, [ref, text, baseFontSize]);
 }

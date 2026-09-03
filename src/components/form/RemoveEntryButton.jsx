@@ -1,5 +1,5 @@
-import {Icon} from '@mdi/react';
-import { mdiDelete } from '@mdi/js';
+import { Icon } from "@mdi/react";
+import { mdiDelete } from "@mdi/js";
 
 /**
  * Renders a button that removes a specific entry from a resume field array
@@ -16,15 +16,15 @@ import { mdiDelete } from '@mdi/js';
  * @param {string} props.label - Accessible name for the button, e.g. "Remove Harvard University entry".
  * @returns {JSX.Element} A button that removes the matched entry when clicked.
  */
-export function RemoveEntryButton({fieldType, entryId, removeEntry, label}) {
+export function RemoveEntryButton({ fieldType, entryId, removeEntry, label }) {
   return (
-    <button 
-      type="button" 
-      className="removeEntryBtn" 
+    <button
+      type="button"
+      className="removeEntryBtn"
       aria-label={label}
       onClick={() => removeEntry(fieldType, entryId)}
     >
       <Icon path={mdiDelete} size={1} />
     </button>
-  )
+  );
 }

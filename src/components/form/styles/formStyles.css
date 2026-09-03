@@ -25,7 +25,8 @@ fieldset ul,
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  .formVisibilityControls, .resumeFormSection {
+  .formVisibilityControls,
+  .resumeFormSection {
     width: 100%;
   }
   /* This gets the .sidebar element out of the way of the main content
@@ -38,7 +39,7 @@ fieldset ul,
 .formVisibilityControls {
   position: fixed;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   gap: 0.5rem;
   align-items: center;
   background-color: var(--charcoal-gray);
@@ -55,15 +56,20 @@ fieldset ul,
 .headerBtn {
   display: flex;
   flex-flow: row nowrap;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   background-color: var(--off-white);
-  
-  &:focus-visible, &:hover {
-    background-color: color-mix(in srgb, var(--off-white) 80%, var(--charcoal-gray));
+
+  &:focus-visible,
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--off-white) 80%,
+      var(--charcoal-gray)
+    );
   }
-} 
+}
 
 /* 
 Warm color scheme:
@@ -122,7 +128,7 @@ fieldset {
 }
 
 details fieldset {
-  background-color: #E3DAC9;
+  background-color: #e3dac9;
 }
 
 fieldset legend {
@@ -180,7 +186,7 @@ summary {
 }
 
 details[open] summary::after {
-  transform: rotate(90deg); 
+  transform: rotate(90deg);
 }
 
 summary::-webkit-details-marker {
@@ -197,19 +203,26 @@ summary::-webkit-details-marker {
     height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: height 0.4s ease-in-out, opacity 0.3s ease-in-out, content-visibility 0.4s allow-discrete;
+    transition:
+      height 0.4s ease-in-out,
+      opacity 0.3s ease-in-out,
+      content-visibility 0.4s allow-discrete;
   }
 
   /* Open state */
   details[open]::details-content {
     height: auto;
     opacity: 1;
-    transition: height 0.5s ease-out, opacity 0.4s ease-out, content-visibility 0.5s allow-discrete;
+    transition:
+      height 0.5s ease-out,
+      opacity 0.4s ease-out,
+      content-visibility 0.5s allow-discrete;
   }
 }
 
 /* input, label, button styling */
-input, button {
+input,
+button {
   height: 2.5rem;
 }
 
@@ -223,23 +236,27 @@ textarea {
   padding: 0.5em;
 }
 
-label, button {
+label,
+button {
   font-size: 0.8em;
   letter-spacing: 0.1em;
 }
 
-input, textarea, button {
+input,
+textarea,
+button {
   border-radius: 8px;
   border: 1px solid var(--charcoal-gray);
   font-family: inherit;
 }
 
-input, textarea {
+input,
+textarea {
   outline: 2px solid transparent;
   font-size: 1rem;
   transition: outline-color 0.2s ease-out;
   &:focus-visible {
-    outline-color: #2F5233;
+    outline-color: #2f5233;
   }
 }
 
@@ -261,11 +278,12 @@ Needs to be tested in Firefox & Safari */
 
 .removeEntryBtn {
   width: fit-content;
-  background-color: #DC2626;
+  background-color: #dc2626;
   color: #ffffff;
 
-  &:hover, &:focus-visible {
-    background-color: color-mix(in srgb, #DC2626 53%, black);
+  &:hover,
+  &:focus-visible {
+    background-color: color-mix(in srgb, #dc2626 53%, black);
   }
 }
 
@@ -274,7 +292,8 @@ Needs to be tested in Firefox & Safari */
   background-color: var(--charcoal-gray);
   color: #ffffff;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     background-color: color-mix(in srgb, var(--charcoal-gray) 85%, white);
   }
 }

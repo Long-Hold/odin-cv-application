@@ -60,11 +60,13 @@
     font-size: 14pt;
   }
 
-  h1, h2, h3 {
-    font-family: 'fira_sansbold';
+  h1,
+  h2,
+  h3 {
+    font-family: "fira_sansbold";
   }
   .position {
-    font-family: 'fira_sansmedium';
+    font-family: "fira_sansmedium";
     font-size: 13pt;
   }
   .date {
@@ -73,7 +75,7 @@
   }
 }
 
-.personalDetails, 
+.personalDetails,
 .skillsDetails,
 .workExperienceDetails,
 .educationDetails {
@@ -86,17 +88,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  h3, .multiLine {
+  h3,
+  .multiLine {
     grid-column: span 2;
   }
 
   &.workExperienceEntry {
     grid-template-rows: repeat(3, auto);
-    grid-template-areas: 
+    grid-template-areas:
       "companyName companyName"
       "position employmentTerm"
       "jobDescription jobDescription";
-    
+
     h3 {
       grid-area: companyName;
     }

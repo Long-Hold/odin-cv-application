@@ -1,16 +1,18 @@
 import { View, Text } from "@react-pdf/renderer";
 import { GLOBAL_STYLES } from "./globalStyles/globalStyles";
 
-export function EducationDetailsPdf({educationArray}) {
+export function EducationDetailsPdf({ educationArray }) {
   return (
     <View style={GLOBAL_STYLES.detailSection}>
       <Text style={GLOBAL_STYLES.sectionHeader}>EDUCATION</Text>
-      {educationArray.map(entry => <EducationEntry key={entry.id} {...entry} />)}
+      {educationArray.map((entry) => (
+        <EducationEntry key={entry.id} {...entry} />
+      ))}
     </View>
-  )
+  );
 }
 
-function EducationEntry({schoolName, degree, dateRange}) {
+function EducationEntry({ schoolName, degree, dateRange }) {
   return (
     <View style={GLOBAL_STYLES.entrySection}>
       <Text style={GLOBAL_STYLES.entryHeader}>{degree}</Text>
@@ -19,5 +21,5 @@ function EducationEntry({schoolName, degree, dateRange}) {
         <Text>{dateRange}</Text>
       </View>
     </View>
-  )
+  );
 }

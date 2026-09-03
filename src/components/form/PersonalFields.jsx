@@ -27,24 +27,22 @@ const personalFieldsConfig = [
     name: RESUME_KEYS.SUMMARY,
     label: "Professional Summary",
     multiLine: true,
-    placeholder: "Describe your unique talents and interests...."
-  }
-]
+    placeholder: "Describe your unique talents and interests....",
+  },
+];
 
-export function PersonalFields({onChange, resumeData}) {
+export function PersonalFields({ onChange, resumeData }) {
   return (
     <fieldset className="personalFields">
       <legend>Personal Details</legend>
-      {
-        personalFieldsConfig.map(field => 
-          <FormField 
-            key={field.name} 
-            value={resumeData[field.name]} 
-            onChange={(event) => onChange(field.name, event.currentTarget.value)} 
-            {...field}
-          />
-        )
-      }
+      {personalFieldsConfig.map((field) => (
+        <FormField
+          key={field.name}
+          value={resumeData[field.name]}
+          onChange={(event) => onChange(field.name, event.currentTarget.value)}
+          {...field}
+        />
+      ))}
     </fieldset>
-  )
+  );
 }
