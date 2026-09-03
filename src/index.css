@@ -39,6 +39,7 @@
   --header-height: 3rem;
   --sidebar-width: min(100vw, 25rem);
   --button-height: 2.5rem;
+  --tab-height: 1.75rem;
 }
 
 body {
