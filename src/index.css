@@ -61,6 +61,7 @@ button {
   height: var(--button-height);
   padding: 0.2em 0.4em;
   transition: 0.2s background-color ease-out;
+  color: var(--charcoal-gray);
   &:focus-visible {
     outline: 3px solid #0361e4af; /* High-visibility blue */
     outline-offset: 2px; /* Spacing away from the button */
