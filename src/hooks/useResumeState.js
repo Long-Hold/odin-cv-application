@@ -2,12 +2,15 @@ import { useState } from "react";
 import { RESUME_KEYS } from "../constants/resumeKeys";
 import { createResumeEntry } from "../utils/resumeTemplates";
 
-const resumeEntries = Object.values(RESUME_KEYS).map((key) => {
-    if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE || key === RESUME_KEYS.SKILLS)
-      return [key, []];
-    return [key, ''];
-})
-const initialResumeObjectState = Object.fromEntries(resumeEntries);
+function createInitialResumeState() {
+  const resumeEntries = Object.values(RESUME_KEYS).map((key) => {
+      if (key === RESUME_KEYS.EDUCATION || key === RESUME_KEYS.WORK_EXPERIENCE || key === RESUME_KEYS.SKILLS)
+        return [key, []];
+      return [key, ''];
+  });
+
+  return Object.fromEntries(resumeEntries);
+}
 
 
 /**
@@ -28,7 +31,7 @@ const initialResumeObjectState = Object.fromEntries(resumeEntries);
 export function useResumeState(initialData = {}) {
   const [resume, setResume] = useState(() => {
     return {
-      ...initialResumeObjectState,
+      ...createInitialResumeState(),
       ...initialData,
     }
   });
@@ -76,7 +79,7 @@ export function useResumeState(initialData = {}) {
   }
 
   const clearAllInfo = () => {
-    setResume(initialResumeObjectState);
+    setResume(createInitialResumeState());
   }
 
   return {
