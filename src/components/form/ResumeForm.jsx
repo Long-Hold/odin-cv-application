@@ -52,7 +52,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
         <button
           type="button"
           className="headerBtn toggleHideFormBtn"
-          onClick={() => toggleForm()}
+          onClick={toggleForm}
           aria-expanded={isFormOpen}
         >
           <Icon path={isFormOpen ? mdiEyeOutline : mdiPencilOutline} size={1} />
