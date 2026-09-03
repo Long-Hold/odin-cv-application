@@ -1,3 +1,44 @@
+.footerWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  transform: translateY(calc(100% - var(--tab-height)));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .footerWrapper {
+    transition: transform 0.4s ease-in-out;
+  }
+}
+
+.footerWrapper.open {
+  transform: translateY(0);
+}
+
+.footerTab {
+  height: var(--tab-height);
+  padding: 0 1rem;
+  border-radius: 8px 8px 0 0;
+  background-color: var(--charcoal-gray);
+  color: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+}
+
+.footerWrapper.open .footerTab svg {
+  transform: rotate(180deg);
+}
+
 footer, footer small, .socialLink {
   display: flex;
   flex-flow: row wrap;
@@ -10,10 +51,6 @@ footer {
   width: 100%;
   height: var(--header-height);
   text-align: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 10;
   background-color: var(--charcoal-gray);
   color: var(--off-white);
   padding: 0.2rem;
