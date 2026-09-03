@@ -11,8 +11,9 @@ import { PDFViewer } from "@react-pdf/renderer";
 import { ResumePdfDocument } from "../pdf/ResumePdfDocument";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { mdiDelete } from "@mdi/js";
 
-export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry}) {
+export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldChange, addNewResumeData, removeResumeEntry, clearAllInfo}) {
   const [isFormOpen, setFormState] = useState(true);
   const [isPDFOpen, setPDFState] = useState(false);
   const toggleForm = () => {
@@ -44,6 +45,11 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
   return (
     <div className="sidebar">
       <header className="formVisibilityControls">
+        <button
+          type="button"
+          className="headerBtn removeEntryBtn"
+          onClick={clearAllInfo}
+        ><Icon path={mdiDelete} size={1}></Icon>clear all</button>
         <button
           type="button"
           className="headerBtn exportPrint"
