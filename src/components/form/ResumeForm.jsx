@@ -47,7 +47,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
       <section className={`resumeFormSection${isFormOpen ? "" : " hide"}`}>
         <form 
           className="resumeDetailsForm"
-          onSubmit={(event) => event.preventDefault}
+          onSubmit={(event) => event.preventDefault()}
           noValidate
         >
           <PersonalFields 
