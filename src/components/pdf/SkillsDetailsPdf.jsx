@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "@react-pdf/renderer";
 import { GLOBAL_STYLES } from "./globalStyles/globalStyles";
+import { SKILLS_KEYS } from "../../constants/resumeKeys";
 
 const styles = StyleSheet.create({
   list: {
@@ -15,7 +16,7 @@ export function SkillsDetailsPdf({skillsArray}) {
 
       <View style={styles.list}>
         {skillsArray.map(entry => 
-          <Text key={entry.id}>{entry.skill}</Text>
+          <Text key={entry.id}>{entry[SKILLS_KEYS.SKILL]}</Text>
         )}
       </View>
     </View>

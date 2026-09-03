@@ -4,6 +4,7 @@ import { SkillsDetailsPdf } from "./SkillsDetailsPdf";
 import { WorkExperiencePdf } from "./WorkExperiencePdf";
 import FiraSansRegular from "../../assets/fonts/FiraSans-Regular.ttf";
 import { EducationDetailsPdf } from "./EducationDetailsPdf";
+import { RESUME_KEYS } from "../../constants/resumeKeys";
 
 // Prevents hyphening words that break
 Font.registerHyphenationCallback((word) => [word]);
@@ -37,19 +38,19 @@ export function ResumePdfDocument({resume}) {
       <Page size="LETTER" style={styles.page}>
         <View style={[{ flex: 1, minWidth: 0,}, styles.detailColumn]}>
           <PersonalDetailsPdf 
-            name={resume.name}
-            email={resume.email}
-            number={resume.number}
-            summary={resume.summary}
+            name={resume[RESUME_KEYS.NAME]}
+            email={resume[RESUME_KEYS.EMAIL]}
+            number={resume[RESUME_KEYS.NUMBER]}
+            summary={resume[RESUME_KEYS.SUMMARY]}
           />
           <SkillsDetailsPdf 
-            skillsArray={resume.skills}
+            skillsArray={resume[RESUME_KEYS.SKILLS]}
           />
         </View>
 
         <View style={[{ flex: 2 }, styles.detailColumn]}>
-          <WorkExperiencePdf workExperienceArray={resume.workExperience}/>
-          <EducationDetailsPdf educationArray={resume.education} />
+          <WorkExperiencePdf workExperienceArray={resume[RESUME_KEYS.WORK_EXPERIENCE]}/>
+          <EducationDetailsPdf educationArray={resume[RESUME_KEYS.EDUCATION]} />
         </View>
       </Page>
     </Document>
