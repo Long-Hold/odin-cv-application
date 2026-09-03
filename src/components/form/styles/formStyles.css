@@ -250,26 +250,6 @@ input, textarea {
 /* Positions the 'Remove Entry' buttons inline with the
 input elements.
 
-Grid is used because the label / inputs are separated from
-the button via a div.*/
-/* .skillsFields {
-  li {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    column-gap: 0.5em;
-    align-items: center;
-  }
-  .labelInputGroup {
-    display: contents;
-  }
-  .labelInputGroup label {
-    grid-column: 1 / -1;
-  }
-  .removeEntryBtn {
-    position: static;
-  }
-} */
-
 /* Flex implementation with the same visuas as the commented-out code above.
 Needs to be tested in Firefox & Safari */
 .skillsFields li {
