@@ -77,7 +77,7 @@ export function ResumeForm({resumeObject, handleContactChange, handleEntryFieldC
           />
         </form>
       </section>
-      <dialog ref={dialogRef} closedby="any">
+      <dialog ref={dialogRef} aria-label="PDF Preview" closedby="any">
         <header>
           <button
             type="button"
