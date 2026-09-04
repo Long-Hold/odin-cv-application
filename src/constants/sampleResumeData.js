@@ -58,9 +58,8 @@ export const sampleResumeData = {
       [WORK_EXPERIENCE_KEYS.POSITION]: "Vinyl Graphic Designer",
       [WORK_EXPERIENCE_KEYS.DATE_RANGE]: "2016.02 - 2018.01",
       [WORK_EXPERIENCE_KEYS.JOB_DESCRIPTION]: [
-        "I was responsible for creating and editing designs that we would use for our vinyl wraps, stickers, and decals in Adobe Illustrator and Photoshop.",
-        "Additionally, I was responsible for setting up and running the online shop for Sekanskin. Duties included creating listings, promotions, and handling customer consultations and transactions.",
-        "We had particular success in niche markets such as custom vinyl Cornhole skins and brand decal creation, and were topping the search results on platforms such as Etsy in this market.",
+        "Created and edited designs for vinyl wraps, stickers, and decals in Adobe Illustrator and Photoshop.",
+        "Ran the online shop for Graphix World, handling listings, promotions, and customer transactions — with particular success in niche markets like custom Cornhole skins, topping search results on platforms like Etsy.",
       ].join("\n\n"),
     },
   ],
