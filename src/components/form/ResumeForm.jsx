@@ -6,11 +6,9 @@ import "./styles/formStyles.css";
 import { useState } from "react";
 import { Icon } from "@mdi/react";
 import { mdiPencilOutline } from "@mdi/js";
-import { mdiEyeOutline, mdiFilePdfBox, mdiCloseBoxOutline } from "@mdi/js";
-import { PDFViewer } from "@react-pdf/renderer";
+import { mdiEyeOutline, mdiFilePdfBox } from "@mdi/js";
+import { pdf } from "@react-pdf/renderer";
 import { ResumePdfDocument } from "../pdf/ResumePdfDocument";
-import { useRef } from "react";
-import { useEffect } from "react";
 import { mdiDelete } from "@mdi/js";
 
 export function ResumeForm({
@@ -21,33 +19,25 @@ export function ResumeForm({
   removeResumeEntry,
   clearAllInfo,
 }) {
+  const [isGenerating, setIsGenerating] = useState(false);
+
   const [isFormOpen, setFormState] = useState(true);
-  const [isPDFOpen, setPDFState] = useState(false);
   const toggleForm = () => {
     setFormState((prevState) => !prevState);
   };
 
-  // Sets the isPDFOpen state to false for any closure methods on the modal (hitting esc, clicking elsewhere)
-  useEffect(() => {
-    const dialogEl = dialogRef.current;
-    if (!dialogEl) return;
-
-    const handleClose = () => setPDFState(false);
-    dialogEl.addEventListener("close", handleClose);
-    return () => dialogEl.removeEventListener("close", handleClose);
-  }, []);
-
-  const dialogRef = useRef(null);
-  const toggleModal = () => {
-    if (!dialogRef.current) return;
-
-    if (dialogRef.current.open) {
-      dialogRef.current.close();
-    } else {
-      setPDFState(true);
-      dialogRef.current.showModal();
+  const openPDFWindow = async () => {
+    const printWindow = window.open("", "_blank");
+    setIsGenerating(true);
+    try {
+      const blob = await pdf(<ResumePdfDocument resume={resumeObject} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      if (printWindow) printWindow.location = url;
+    } finally {
+      setIsGenerating(false);
     }
   };
+
   return (
     <div className="sidebar">
       <header className="formVisibilityControls">
@@ -61,10 +51,11 @@ export function ResumeForm({
         <button
           type="button"
           className="headerBtn exportPrint"
-          onClick={toggleModal}
+          onClick={openPDFWindow}
+          disabled={isGenerating}
         >
           <Icon path={mdiFilePdfBox} size={1} />
-          preview PDF
+          {isGenerating ? "generating PDF" : "preview PDF"}
         </button>
         <button
           type="button"
@@ -109,30 +100,6 @@ export function ResumeForm({
           />
         </form>
       </section>
-      <dialog ref={dialogRef} aria-label="PDF Preview" closedby="any">
-        <header>
-          <button
-            type="button"
-            className="headerBtn closeModalBtn"
-            onClick={toggleModal}
-          >
-            <Icon path={mdiCloseBoxOutline} size={1} />
-            close preview
-          </button>
-        </header>
-        {isPDFOpen && (
-          <PDFViewer
-            style={{
-              position: "absolute",
-              width: "100vw",
-              height: "100vh",
-              height: "100dvh",
-            }}
-          >
-            <ResumePdfDocument resume={resumeObject} />
-          </PDFViewer>
-        )}
-      </dialog>
     </div>
   );
 }
