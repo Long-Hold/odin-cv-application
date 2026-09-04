@@ -6,7 +6,8 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   place-content: center;
 }
 
